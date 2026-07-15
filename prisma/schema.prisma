@@ -1,0 +1,213 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Componente {
+  id          String  @id
+  nome        String
+  tipo        String // "fgb" | "tecnica" | "transversal"
+  habilitacao String? // "ADM" | "IA" | "MM", só para tipo "tecnica"
+  areaId      String
+  area        Area    @relation(fields: [areaId], references: [id])
+  saberes     SaberCurricular[]
+  placements  CardConteudo[]
+  planejamentos PlanejamentoBimestre[]
+  detalhamentosSemana DetalhamentoSemana[]
+  competencias Competencia[]
+
+  @@index([areaId])
+}
+
+model Area {
+  id          String       @id
+  nome        String
+  tipo        String
+  habilitacao String?
+  ordem       Int
+  componentes Componente[]
+}
+
+// Catálogo de saberes/conteúdos por componente e ano — mantido pelo Núcleo
+// Pulsante (admin). Título, descrição, competências/habilidades, temas e
+// relações de pré-requisito/integração vivem aqui; o Mapa Bimestral só
+// referencia (posiciona) saberes já cadastrados.
+model SaberCurricular {
+  id            String     @id @default(cuid())
+  componenteId  String
+  componente    Componente @relation(fields: [componenteId], references: [id])
+  ano           Int // 0 | 1 | 2
+  titulo        String
+  descricao     String
+  temas         String // JSON string[]
+  habilitacao   String?
+
+  competencias  Competencia[]
+  habilidades   Habilidade[]
+  placements    CardConteudo[]
+
+  prerequisitosDe   SaberRelacao[] @relation("saber_prereq_de")
+  prerequisitosPara SaberRelacao[] @relation("saber_prereq_para")
+
+  @@index([componenteId, ano])
+}
+
+// tabela de junção usada tanto para pré-requisitos quanto integrações entre saberes
+// tipo: "prerequisito" | "integracao"
+model SaberRelacao {
+  id        String          @id @default(cuid())
+  tipo      String
+  origemId  String
+  origem    SaberCurricular @relation("saber_prereq_de", fields: [origemId], references: [id], onDelete: Cascade)
+  destinoId String
+  destino   SaberCurricular @relation("saber_prereq_para", fields: [destinoId], references: [id], onDelete: Cascade)
+
+  @@unique([tipo, origemId, destinoId])
+  @@index([destinoId])
+}
+
+// Posição de um saber no Mapa Bimestral: curadoria feita pelo(a) professor(a)
+// do componente. Um mesmo saber pode ter mais de um placement (retomado em
+// bimestres diferentes).
+model CardConteudo {
+  id           String          @id @default(cuid())
+  saberId      String
+  saber        SaberCurricular @relation(fields: [saberId], references: [id], onDelete: Cascade)
+  componenteId String
+  componente   Componente      @relation(fields: [componenteId], references: [id])
+  ano          Int // 0 | 1 | 2
+  bimestre     Int // 1 | 2 | 3 | 4
+  ordem        Int
+
+  semanaId     String?
+  semana       Semana?         @relation(fields: [semanaId], references: [id], onDelete: SetNull)
+
+  comentarios  Comentario[]
+
+  @@index([componenteId, ano, bimestre])
+  @@index([semanaId])
+}
+
+// Semana dentro de uma fase — compartilhada por todos os componentes, usada na
+// Grade Semanal para compor lado a lado o que cada componente aborda na mesma
+// semana. Flexível: adicionada/removida pela própria interface, sem quantidade fixa.
+model Semana {
+  id       String         @id @default(cuid())
+  ano      Int
+  bimestre Int // 1 | 2 | 3 | 4 (fase)
+  ordem    Int
+  cards    CardConteudo[]
+  detalhamentos DetalhamentoSemana[]
+
+  @@unique([ano, bimestre, ordem])
+}
+
+// Detalhamento metodológico de uma célula da Grade Semanal (componente + semana):
+// texto livre descrevendo como aquele componente vai abordar aquela semana,
+// independente dos saberes já posicionados nela.
+model DetalhamentoSemana {
+  componenteId  String
+  componente    Componente @relation(fields: [componenteId], references: [id])
+  semanaId      String
+  semana        Semana     @relation(fields: [semanaId], references: [id], onDelete: Cascade)
+  texto         String     @default("")
+  atualizadoEm  DateTime?
+  atualizadoPor String?
+
+  @@id([componenteId, semanaId])
+}
+
+// Competências e habilidades cadastradas por componente curricular (CCMI,
+// Projeto, Oficinação, Letramento Digital etc.) — cada uma pertence a um único
+// componente. Gerenciadas na tela "Competências"; usadas depois para marcar os
+// saberes de cada componente.
+model Competencia {
+  id            String       @id
+  componenteId  String
+  componente    Componente   @relation(fields: [componenteId], references: [id])
+  ano           Int
+  descricao     String
+  habilidades   Habilidade[]
+  saberes       SaberCurricular[]
+
+  @@index([componenteId, ano])
+}
+
+model Habilidade {
+  id            String      @id
+  competenciaId String
+  competencia   Competencia @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
+  descricao     String
+  saberes       SaberCurricular[]
+
+  @@index([competenciaId])
+}
+
+model Comentario {
+  id         String       @id @default(cuid())
+  cardId     String
+  card       CardConteudo @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  autorNome  String
+  texto      String
+  criadoEm   DateTime     @default(now())
+
+  @@index([cardId])
+}
+
+model MetaValidacao {
+  ano           Int
+  componenteId  String
+  validado      Boolean  @default(false)
+  validadoEm    DateTime?
+  validadoPor   String?
+
+  @@id([ano, componenteId])
+}
+
+// Planejamento do professor para um bimestre específico: quantos tempos de
+// aula ele tem disponíveis e como espera distribuir os saberes já
+// posicionados naquele bimestre (atividades, projetos, avaliação).
+model PlanejamentoBimestre {
+  componenteId  String
+  componente    Componente @relation(fields: [componenteId], references: [id])
+  ano           Int
+  bimestre      Int
+  temposAula    Int?
+  atividades    String   @default("")
+  projetos      String   @default("")
+  avaliacao     String   @default("")
+  atualizadoEm  DateTime?
+  atualizadoPor String?
+
+  @@id([componenteId, ano, bimestre])
+}
+
+model Professor {
+  id          String  @id @default(cuid())
+  nome        String  @unique
+  codigoHash  String
+  perfil      String // "admin" | "orientador" | "professor"
+  unidade     String? // "Niterói" | "Barra da Tijuca" | "Cápsula" | "Politécnico" — null para admin
+  componentes String // JSON string[] — só relevante quando perfil = "professor"
+}
+
+// Histórico de auditoria: uma linha por ação relevante realizada no sistema,
+// visível só ao administrador. autorId/autorNome são denormalizados (sem FK)
+// para que o histórico sobreviva mesmo se a conta autora for depois excluída.
+model RegistroAuditoria {
+  id        String   @id @default(cuid())
+  criadoEm  DateTime @default(now())
+  acao      String
+  descricao String
+  autorId   String?
+  autorNome String
+
+  @@index([criadoEm])
+}

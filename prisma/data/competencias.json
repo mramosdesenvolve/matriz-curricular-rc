@@ -1,0 +1,44 @@
+[
+  {
+    "id": "IP-COG",
+    "componenteId": "projeto",
+    "ano": 0,
+    "descricao": "Desenvolver a cognição operativa expandida: a capacidade de ler, estruturar e intervir em problemas complexos, articulando diferentes recursos, linguagens e estratégias.",
+    "habilidades": []
+  },
+  {
+    "id": "IP-TEC",
+    "componenteId": "letramento-digital",
+    "ano": 0,
+    "descricao": "Promover o uso estratégico, crítico e combinatório de tecnologias digitais e inteligências artificiais, como meios de produção, análise e intervenção — e não como fins em si mesmas.",
+    "habilidades": []
+  },
+  {
+    "id": "IP-CTX",
+    "componenteId": "ccmi",
+    "ano": 0,
+    "descricao": "Formar estudantes capazes de interpretar contextos sociais, econômicos e culturais, tomando decisões fundamentadas e construindo respostas situadas diante de desafios concretos.",
+    "habilidades": []
+  },
+  {
+    "id": "IP-PORT",
+    "componenteId": "projeto",
+    "ano": 0,
+    "descricao": "Estruturar portfólios formativos baseados em cases reais, que evidenciem processos, soluções desenvolvidas e aprendizagens mobilizadas, consolidando evidências de autoria e competência.",
+    "habilidades": []
+  },
+  {
+    "id": "IP-TRAB",
+    "componenteId": "projeto",
+    "ano": 0,
+    "descricao": "Estabelecer conexões qualificadas com o mundo do trabalho, por meio de parcerias, projetos e experiências que ampliem repertórios e possibilidades de inserção.",
+    "habilidades": []
+  },
+  {
+    "id": "IP-AFRO",
+    "componenteId": "ccmi",
+    "ano": 0,
+    "descricao": "Incorporar referenciais afro-brasileiros e afro-diaspóricos na formação técnica, reconhecendo e atualizando tradições de saber multifuncional, inventivo e situado, fortalecendo identificação, pertencimento e produção de conhecimento.",
+    "habilidades": []
+  }
+]

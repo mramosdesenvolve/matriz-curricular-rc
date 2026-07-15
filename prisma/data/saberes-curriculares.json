@@ -1,0 +1,165 @@
+[
+  {
+    "componenteId": "ccmi",
+    "ano": 0,
+    "titulo": "Leitura crítica do contexto social e territorial do problema",
+    "descricao": "Identificação das dimensões sociais, históricas e culturais presentes na situação-problema trabalhada no Projeto, ampliando a leitura de mundo dos estudantes antes da fase de estruturação.",
+    "temas": ["território", "contexto social", "leitura crítica"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-CTX"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "ccmi",
+    "ano": 0,
+    "titulo": "Análise crítica de dados culturais e históricos",
+    "descricao": "Mobilização de materiais culturais, dados históricos e discussões orientadas (desigualdade, território, identidade) para aprofundar o diagnóstico construído no Projeto e na Oficinação.",
+    "temas": ["desigualdade", "identidade", "análise de dados"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-CTX", "IP-AFRO"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "ccmi",
+    "ano": 0,
+    "titulo": "Tensionamento afro-referenciado das soluções propostas",
+    "descricao": "Revisão crítica das intervenções em desenvolvimento a partir de uma perspectiva afro-referenciada, reconhecendo os estudantes como sujeitos de saber e tensionando formas historicamente desiguais de acesso à técnica e às oportunidades.",
+    "temas": ["afropolimatismo", "autonomia", "crítica"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-AFRO"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "ccmi",
+    "ano": 0,
+    "titulo": "Articulação de identidade, memória e cultura na narrativa do portfólio",
+    "descricao": "Incorporação de referenciais afro-brasileiros e afro-diaspóricos na sistematização final do case, fortalecendo identificação e pertencimento na apresentação pública do portfólio.",
+    "temas": ["portfólio", "memória", "apresentação"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-AFRO"],
+    "habilidadeIds": []
+  },
+
+  {
+    "componenteId": "projeto",
+    "ano": 0,
+    "titulo": "Leitura e delimitação do problema",
+    "descricao": "Levantamento de dados básicos, organização em categorias e formulação de hipóteses iniciais diante de uma situação-problema real ou simulada — a etapa de aprender a ver, nomear e estruturar.",
+    "temas": ["problematização", "hipóteses", "dados"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-COG"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "projeto",
+    "ano": 0,
+    "titulo": "Investigação orquestrada do problema",
+    "descricao": "Exploração ativa do problema com mediação próxima do educador: cruzamento de dados, coleta de percepções e uso combinado de ferramentas digitais e IA para construir um diagnóstico mais consistente.",
+    "temas": ["investigação", "ferramentas digitais", "diagnóstico"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-COG"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "projeto",
+    "ano": 0,
+    "titulo": "Projetação, prototipagem e testagem de intervenções",
+    "descricao": "Proposição e teste de uma intervenção real (planejar, executar, avaliar) com maior autonomia, articulando diferentes saberes e recursos e compreendendo efeitos e limites da solução.",
+    "temas": ["prototipagem", "autonomia", "intervenção"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-COG"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "projeto",
+    "ano": 0,
+    "titulo": "Sistematização do case e apresentação pública",
+    "descricao": "Revisão das produções, sistematização do projeto em portfólio e elaboração de apresentação pública, explicitando não apenas os produtos, mas os modos de pensar, decidir e intervir construídos no percurso.",
+    "temas": ["portfólio", "apresentação", "síntese"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-PORT"],
+    "habilidadeIds": []
+  },
+
+  {
+    "componenteId": "oficinacao",
+    "ano": 0,
+    "titulo": "Leitura de cenário e organização inicial de dados",
+    "descricao": "Roteiros de português e matemática voltados à leitura do problema do Projeto: organização de informações em categorias e primeiras estruturações quantitativas e argumentativas, a partir das necessidades de cada grupo.",
+    "temas": ["leitura", "dados", "roteiro de aprendizagem"],
+    "habilitacao": null,
+    "competenciaIds": [],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "oficinacao",
+    "ano": 0,
+    "titulo": "Análise quantitativa e argumentativa do diagnóstico",
+    "descricao": "Roteiros situados para cruzar dados coletados (planilhas, formulários) e construir argumentação escrita que sustente o diagnóstico em desenvolvimento no Projeto.",
+    "temas": ["dados quantitativos", "argumentação", "planilhas"],
+    "habilitacao": null,
+    "competenciaIds": [],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "oficinacao",
+    "ano": 0,
+    "titulo": "Argumentação escrita para sustentar decisões e propostas",
+    "descricao": "Roteiros de escrita e raciocínio lógico-matemático para estruturar a proposta de intervenção do grupo, com intervenção intencional e contextualizada do educador conforme o estágio do projeto.",
+    "temas": ["argumentação", "raciocínio lógico", "escrita"],
+    "habilitacao": null,
+    "competenciaIds": [],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "oficinacao",
+    "ano": 0,
+    "titulo": "Redação final e consistência numérica do portfólio",
+    "descricao": "Roteiros voltados à revisão textual e à consistência dos dados/cálculos apresentados no portfólio final, qualificando a comunicação da solução para diferentes públicos.",
+    "temas": ["redação", "revisão", "portfólio"],
+    "habilitacao": null,
+    "competenciaIds": [],
+    "habilidadeIds": []
+  },
+
+  {
+    "componenteId": "letramento-digital",
+    "ano": 0,
+    "titulo": "Primeiro contato com ferramentas subordinado à leitura do problema",
+    "descricao": "Introdução a ferramentas e tecnologias sempre subordinadas à compreensão do problema, sem antecipar a fase de resolução — o foco está em aprender a nomear e estruturar com apoio digital.",
+    "temas": ["ferramentas digitais", "introdução", "estruturação"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-TEC"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "letramento-digital",
+    "ano": 0,
+    "titulo": "Uso combinado de ferramentas digitais, dados e IA",
+    "descricao": "Mobilização combinada de planilhas, formulários digitais e ferramentas de IA para cruzar dados e sintetizar respostas, compondo um diagnóstico mais consistente com mediação próxima do educador.",
+    "temas": ["planilhas", "inteligência artificial", "formulários"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-TEC"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "letramento-digital",
+    "ano": 0,
+    "titulo": "Prototipagem digital de soluções",
+    "descricao": "Uso de ferramentas digitais para estruturar, prototipar e testar a proposta de intervenção do grupo, com orientação sobre escolha de ferramentas e resolução de entraves técnicos.",
+    "temas": ["prototipagem", "ferramentas digitais", "autonomia"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-TEC"],
+    "habilidadeIds": []
+  },
+  {
+    "componenteId": "letramento-digital",
+    "ano": 0,
+    "titulo": "Produção de apresentações e materiais digitais do portfólio",
+    "descricao": "Estruturação de apresentações e materiais digitais que comuniquem o case desenvolvido, ampliando o repertório digital dos estudantes na etapa final de consolidação.",
+    "temas": ["apresentação", "produção digital", "portfólio"],
+    "habilitacao": null,
+    "competenciaIds": ["IP-TEC"],
+    "habilidadeIds": []
+  }
+]

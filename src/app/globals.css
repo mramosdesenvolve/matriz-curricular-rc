@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f6f2;
+  --paper-2: #eeece5;
+  --paper-3: #e3e0d6;
+  --ink: #1e2130;
+  --ink-soft: #5b5f6e;
+  --ink-faint: #8b8e9a;
+  --line: #dbd8ce;
+  --line-strong: #bfbbae;
+  --brand-blue: #1b2e73;
+  --brand-blue-bg: #e3e7f3;
+  --fgb: #8a3b2d;
+  --fgb-bg: #f2e1dc;
+  --tecnica: #4b2a82;
+  --tecnica-bg: #e7e1f0;
+  --transversal: #1b2e73;
+  --transversal-bg: #e3e7f3;
+  --integra: #c1622e;
+  --integra-bg: #f5e3d3;
+  --alerta: #a6453b;
+  --alerta-bg: #f3e1de;
+  --sucesso: #3f8f6b;
+  --sucesso-bg: #e1f0e9;
+  --branco: #ffffff;
+  --shadow: 0 1px 2px rgba(30, 33, 48, 0.06), 0 4px 14px rgba(30, 33, 48, 0.06);
+  --shadow-lift: 0 6px 20px rgba(30, 33, 48, 0.16);
+  --radius: 10px;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #14161f;
+  --paper-2: #1b1e29;
+  --paper-3: #242836;
+  --ink: #e8e9ee;
+  --ink-soft: #b0b3c2;
+  --ink-faint: #787c8f;
+  --line: #2c2f3d;
+  --line-strong: #3b3f52;
+  --brand-blue: #7186e0;
+  --brand-blue-bg: #232a48;
+  --fgb: #d98369;
+  --fgb-bg: #3a251f;
+  --tecnica: #a688dd;
+  --tecnica-bg: #2c2440;
+  --transversal: #7186e0;
+  --transversal-bg: #232a48;
+  --integra: #e6996a;
+  --integra-bg: #402a19;
+  --alerta: #e28b81;
+  --alerta-bg: #3d2321;
+  --sucesso: #6fcba0;
+  --sucesso-bg: #1c3327;
+  --branco: #1e212c;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 6px 24px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-bg: var(--brand-blue-bg);
+  --color-fgb: var(--fgb);
+  --color-fgb-bg: var(--fgb-bg);
+  --color-tecnica: var(--tecnica);
+  --color-tecnica-bg: var(--tecnica-bg);
+  --color-transversal: var(--transversal);
+  --color-transversal-bg: var(--transversal-bg);
+  --color-integra: var(--integra);
+  --color-integra-bg: var(--integra-bg);
+  --color-alerta: var(--alerta);
+  --color-alerta-bg: var(--alerta-bg);
+  --color-sucesso: var(--sucesso);
+  --color-sucesso-bg: var(--sucesso-bg);
+  --color-branco: var(--branco);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-poppins);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+h1,
+h2,
+h3,
+.serif {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+::selection {
+  background: var(--integra-bg);
+}
+
+.icone-tema-lua {
+  display: block;
+}
+.icone-tema-sol {
+  display: none;
+}
+.dark .icone-tema-lua {
+  display: none;
+}
+.dark .icone-tema-sol {
+  display: block;
+}
+
