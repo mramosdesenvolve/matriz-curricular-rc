@@ -1,8 +1,32 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { AREAS } from "../src/lib/domain";
-import competenciasData from "./data/competencias.json";
-import saberesData from "./data/saberes-curriculares.json";
+import competenciasDataRaw from "./data/competencias.json";
+import saberesDataRaw from "./data/saberes-curriculares.json";
+
+// Tipagem explícita dos JSONs — sem isso, arrays vazios (ex.: "habilidades": [])
+// fazem o TypeScript inferir `never[]`, o que quebra o build de produção.
+type CompetenciaSeed = {
+  id: string;
+  componenteId: string;
+  ano: number;
+  descricao: string;
+  habilidades: { id: string; descricao: string }[];
+};
+
+type SaberSeed = {
+  componenteId: string;
+  ano: number;
+  titulo: string;
+  descricao: string;
+  temas: string[];
+  habilitacao: string | null;
+  competenciaIds: string[];
+  habilidadeIds: string[];
+};
+
+const competenciasData = competenciasDataRaw as CompetenciaSeed[];
+const saberesData = saberesDataRaw as SaberSeed[];
 
 const prisma = new PrismaClient();
 
