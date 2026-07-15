@@ -6,6 +6,8 @@ import { gerarPdfDeHtml } from "@/lib/pdf";
 import { auth } from "@/lib/auth";
 import { podeAcessarMatrizCurricular } from "@/lib/permissions";
 
+export const maxDuration = 60;
+
 export async function GET(request: NextRequest) {
   const session = await auth();
   if (!session?.user) {

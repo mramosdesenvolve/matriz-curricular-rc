@@ -5,6 +5,8 @@ import { htmlGradeSemanalFase } from "@/lib/pdf-template";
 import { gerarPdfDeHtml } from "@/lib/pdf";
 import { auth } from "@/lib/auth";
 
+export const maxDuration = 60;
+
 export async function GET(request: NextRequest, { params }: { params: Promise<{ numero: string }> }) {
   const session = await auth();
   if (!session?.user) {
