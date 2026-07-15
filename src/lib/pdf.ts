@@ -30,3 +30,19 @@ export async function gerarPdfDeHtml(html: string): Promise<Buffer> {
     await browser.close();
   }
 }
+
+export async function gerarRespostaPdf(html: string, filename: string): Promise<Response> {
+  try {
+    const pdf = await gerarPdfDeHtml(html);
+    return new Response(new Uint8Array(pdf), {
+      headers: {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": `inline; filename="${filename}"`,
+      },
+    });
+  } catch (err) {
+    console.error("Erro ao gerar PDF:", err);
+    const detalhe = err instanceof Error ? `${err.message}\n${err.stack ?? ""}` : String(err);
+    return new Response(`Erro ao gerar PDF.\n\n${detalhe}`, { status: 500 });
+  }
+}

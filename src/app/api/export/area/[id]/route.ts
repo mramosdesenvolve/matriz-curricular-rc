@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { getArea } from "@/lib/domain";
 import { fetchCardsParaComponentes, fetchMetaValidacao, fetchPlanejamentos } from "@/lib/cards-data";
 import { htmlArea } from "@/lib/pdf-template";
-import { gerarPdfDeHtml } from "@/lib/pdf";
+import { gerarRespostaPdf } from "@/lib/pdf";
 import { auth } from "@/lib/auth";
 
 export const maxDuration = 60;
@@ -30,12 +30,5 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   const cardsPorComponente = new Map(componenteIds.map((cid) => [cid, cards.filter((c) => c.componenteId === cid)]));
 
   const html = htmlArea(area.nome, area.componentes, ano, cardsPorComponente, meta, planejamentos);
-  const pdf = await gerarPdfDeHtml(html);
-
-  return new Response(new Uint8Array(pdf), {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="matriz-curricular-${area.id}.pdf"`,
-    },
-  });
+  return gerarRespostaPdf(html, `matriz-curricular-${area.id}.pdf`);
 }

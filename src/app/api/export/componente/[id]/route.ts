@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { getComponente } from "@/lib/domain";
 import { fetchCardsParaComponentes, fetchMetaValidacao, fetchPlanejamentos } from "@/lib/cards-data";
 import { htmlComponente } from "@/lib/pdf-template";
-import { gerarPdfDeHtml } from "@/lib/pdf";
+import { gerarRespostaPdf } from "@/lib/pdf";
 import { auth } from "@/lib/auth";
 
 export const maxDuration = 60;
@@ -33,12 +33,5 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     meta.get(id) ?? { validado: false, validadoEm: null, validadoPor: null },
     planejamentos
   );
-  const pdf = await gerarPdfDeHtml(html);
-
-  return new Response(new Uint8Array(pdf), {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="matriz-curricular-${componente.id}.pdf"`,
-    },
-  });
+  return gerarRespostaPdf(html, `matriz-curricular-${componente.id}.pdf`);
 }

@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { AREAS, FASES } from "@/lib/domain";
 import { fetchCardsParaComponentes, fetchSemanas, fetchDetalhamentos } from "@/lib/cards-data";
 import { htmlGradeSemanalCompleta } from "@/lib/pdf-template";
-import { gerarPdfDeHtml } from "@/lib/pdf";
+import { gerarRespostaPdf } from "@/lib/pdf";
 import { auth } from "@/lib/auth";
 
 export const maxDuration = 60;
@@ -33,12 +33,5 @@ export async function GET(request: NextRequest) {
   const fases = FASES.map((f, i) => ({ numero: f.numero, nome: f.nome, semanas: semanasPorFaseArr[i] }));
 
   const html = htmlGradeSemanalCompleta(area.nome, fases, area.componentes, cardsPorComponente, detalhamentos);
-  const pdf = await gerarPdfDeHtml(html);
-
-  return new Response(new Uint8Array(pdf), {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="grade-semanal-${area.id}.pdf"`,
-    },
-  });
+  return gerarRespostaPdf(html, `grade-semanal-${area.id}.pdf`);
 }

@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { areasEmOrdemMatrizCurricular } from "@/lib/domain";
 import { fetchSaberesParaComponentes } from "@/lib/cards-data";
 import { htmlMatrizCurricular } from "@/lib/pdf-template";
-import { gerarPdfDeHtml } from "@/lib/pdf";
+import { gerarRespostaPdf } from "@/lib/pdf";
 import { auth } from "@/lib/auth";
 import { podeAcessarMatrizCurricular } from "@/lib/permissions";
 
@@ -25,12 +25,5 @@ export async function GET(request: NextRequest) {
   const saberesPorComponente = new Map(componenteIds.map((cid) => [cid, saberes.filter((s) => s.componenteId === cid)]));
 
   const html = htmlMatrizCurricular(ano, areas, saberesPorComponente);
-  const pdf = await gerarPdfDeHtml(html);
-
-  return new Response(new Uint8Array(pdf), {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="matriz-curricular-${ano}.pdf"`,
-    },
-  });
+  return gerarRespostaPdf(html, `matriz-curricular-${ano}.pdf`);
 }

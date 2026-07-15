@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { AREAS } from "@/lib/domain";
 import { fetchCardsParaComponentes, fetchSemanaPorId, fetchDetalhamentos } from "@/lib/cards-data";
 import { htmlGradeSemanalSemana } from "@/lib/pdf-template";
-import { gerarPdfDeHtml } from "@/lib/pdf";
+import { gerarRespostaPdf } from "@/lib/pdf";
 import { auth } from "@/lib/auth";
 
 export const maxDuration = 60;
@@ -38,12 +38,5 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     cardsPorComponente,
     detalhamentos
   );
-  const pdf = await gerarPdfDeHtml(html);
-
-  return new Response(new Uint8Array(pdf), {
-    headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="grade-semanal-${area.id}-semana-${semana.ordem}-fase-${semana.bimestre}.pdf"`,
-    },
-  });
+  return gerarRespostaPdf(html, `grade-semanal-${area.id}-semana-${semana.ordem}-fase-${semana.bimestre}.pdf`);
 }
