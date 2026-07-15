@@ -21,7 +21,6 @@ export type SaberInput = {
   titulo: string;
   descricao: string;
   competenciaIds: string[];
-  habilidadeIds: string[];
   temas: string[];
   habilitacao: string | null;
   prerequisitos: string[];
@@ -56,7 +55,6 @@ export async function criarSaber(input: SaberInput) {
       temas: JSON.stringify(input.temas),
       habilitacao: input.habilitacao,
       competencias: { connect: input.competenciaIds.map((id) => ({ id })) },
-      habilidades: { connect: input.habilidadeIds.map((id) => ({ id })) },
     },
   });
 
@@ -80,7 +78,6 @@ export async function atualizarSaber(saberId: string, input: SaberInput) {
       temas: JSON.stringify(input.temas),
       habilitacao: input.habilitacao,
       competencias: { set: input.competenciaIds.map((id) => ({ id })) },
-      habilidades: { set: input.habilidadeIds.map((id) => ({ id })) },
     },
   });
 

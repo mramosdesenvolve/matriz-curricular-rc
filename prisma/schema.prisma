@@ -36,9 +36,9 @@ model Area {
 }
 
 // Catálogo de saberes/conteúdos por componente e ano — mantido pelo Núcleo
-// Pulsante (admin). Título, descrição, competências/habilidades, temas e
-// relações de pré-requisito/integração vivem aqui; o Mapa Bimestral só
-// referencia (posiciona) saberes já cadastrados.
+// Pulsante (admin). Título, descrição, competências, temas e relações de
+// pré-requisito/integração vivem aqui; o Mapa Bimestral só referencia
+// (posiciona) saberes já cadastrados.
 model SaberCurricular {
   id            String     @id @default(cuid())
   componenteId  String
@@ -50,7 +50,6 @@ model SaberCurricular {
   habilitacao   String?
 
   competencias  Competencia[]
-  habilidades   Habilidade[]
   placements    CardConteudo[]
 
   prerequisitosDe   SaberRelacao[] @relation("saber_prereq_de")
@@ -124,8 +123,8 @@ model DetalhamentoSemana {
   @@id([componenteId, semanaId])
 }
 
-// Competências e habilidades cadastradas por componente curricular (CCMI,
-// Projeto, Oficinação, Letramento Digital etc.) — cada uma pertence a um único
+// Competências cadastradas por componente curricular (CCMI, Projeto,
+// Oficinação, Letramento Digital etc.) — cada uma pertence a um único
 // componente. Gerenciadas na tela "Competências"; usadas depois para marcar os
 // saberes de cada componente.
 model Competencia {
@@ -134,20 +133,9 @@ model Competencia {
   componente    Componente   @relation(fields: [componenteId], references: [id])
   ano           Int
   descricao     String
-  habilidades   Habilidade[]
   saberes       SaberCurricular[]
 
   @@index([componenteId, ano])
-}
-
-model Habilidade {
-  id            String      @id
-  competenciaId String
-  competencia   Competencia @relation(fields: [competenciaId], references: [id], onDelete: Cascade)
-  descricao     String
-  saberes       SaberCurricular[]
-
-  @@index([competenciaId])
 }
 
 model Comentario {

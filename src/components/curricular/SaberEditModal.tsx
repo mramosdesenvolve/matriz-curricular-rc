@@ -4,10 +4,10 @@ import { useState, useTransition } from "react";
 import { Modal } from "@/components/ui/Modal";
 import { TagInput } from "@/components/ui/TagInput";
 import { RelacaoPicker } from "@/components/ui/RelacaoPicker";
-import { CompetenciaHabilidadePicker } from "@/components/ui/CompetenciaHabilidadePicker";
+import { CompetenciaPicker } from "@/components/ui/CompetenciaPicker";
 import { HABILITACOES } from "@/lib/domain";
 import { criarSaber, atualizarSaber, excluirSaber, type SaberInput } from "@/lib/actions/saberes";
-import type { SaberVM, SaberRelacionado, CompetenciaComHabilidadesVM } from "@/lib/cards-data";
+import type { SaberVM, SaberRelacionado, CompetenciaComponenteVM } from "@/lib/cards-data";
 
 export function SaberEditModal({
   saber,
@@ -21,14 +21,13 @@ export function SaberEditModal({
   componenteId: string;
   ano: number;
   todosSaberes: SaberRelacionado[];
-  competenciasDisponiveis: CompetenciaComHabilidadesVM[];
+  competenciasDisponiveis: CompetenciaComponenteVM[];
   onClose: () => void;
 }) {
   const [titulo, setTitulo] = useState(saber?.titulo ?? "");
   const [descricao, setDescricao] = useState(saber?.descricao ?? "");
   const [habilitacao, setHabilitacao] = useState<string>(saber?.habilitacao ?? "");
   const [competenciaIds, setCompetenciaIds] = useState<string[]>(saber?.competencias.map((c) => c.id) ?? []);
-  const [habilidadeIds, setHabilidadeIds] = useState<string[]>(saber?.habilidades.map((h) => h.id) ?? []);
   const [temas, setTemas] = useState<string[]>(saber?.temas ?? []);
   const [prerequisitos, setPrerequisitos] = useState<string[]>(saber?.prerequisitos.map((p) => p.id) ?? []);
   const [integracoes, setIntegracoes] = useState<string[]>(saber?.integracoes.map((p) => p.id) ?? []);
@@ -46,7 +45,6 @@ export function SaberEditModal({
       titulo: titulo.trim(),
       descricao: descricao.trim(),
       competenciaIds,
-      habilidadeIds,
       temas,
       habilitacao: habilitacao || null,
       prerequisitos,
@@ -124,13 +122,11 @@ export function SaberEditModal({
         </div>
 
         <div>
-          <label className="mb-1 block text-xs font-semibold text-ink-soft">Competências e habilidades</label>
-          <CompetenciaHabilidadePicker
+          <label className="mb-1 block text-xs font-semibold text-ink-soft">Competências</label>
+          <CompetenciaPicker
             competencias={competenciasDisponiveis}
             competenciaIds={competenciaIds}
-            habilidadeIds={habilidadeIds}
             onChangeCompetencias={setCompetenciaIds}
-            onChangeHabilidades={setHabilidadeIds}
           />
         </div>
 

@@ -1,4 +1,4 @@
-export const VERSAO_ATUAL = "1.0.0";
+export const VERSAO_ATUAL = "1.1.0";
 
 export type EntradaChangelog = {
   versao: string;
@@ -8,6 +8,18 @@ export type EntradaChangelog = {
 
 // Cada atualização relevante ganha uma entrada aqui. A mais recente fica no topo.
 export const CHANGELOG: EntradaChangelog[] = [
+  {
+    versao: "1.1.0",
+    data: "2026-07-15",
+    mudancas: [
+      "Catálogo de competências e saberes atualizado a partir do documento mais recente da Rede Cruzada (20 competências, 40 saberes, com pré-requisitos e integrações entre componentes).",
+      "Os 40 saberes foram posicionados no Mapa por Fases, a partir da leitura do Projeto de Inclusão Produtiva.",
+      "Tela de Competências simplificada: removido o cadastro de habilidades, mantendo só a competência por componente.",
+      "Reordenação da barra de navegação e remoção do botão de Planejamento da fase no Mapa por Fases.",
+      "Correção da exportação em PDF em produção (falhava com erro 500 no Vercel).",
+      "Novo usuário \"Gestão\" com acesso de edição a todos os componentes, para a coordenação pedagógica.",
+    ],
+  },
   {
     versao: "1.0.0",
     data: "2026-07-14",

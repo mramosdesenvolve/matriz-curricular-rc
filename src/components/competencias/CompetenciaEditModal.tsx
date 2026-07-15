@@ -37,7 +37,7 @@ export function CompetenciaEditModal({
 
   function excluir() {
     if (!competencia) return;
-    if (!confirm(`Excluir a competência "${competencia.id}"? Isso também remove suas habilidades e desvincula qualquer saber já marcado com ela. Esta ação não pode ser desfeita.`)) return;
+    if (!confirm(`Excluir a competência "${competencia.id}"? Isso desvincula qualquer saber já marcado com ela. Esta ação não pode ser desfeita.`)) return;
     startTransition(async () => {
       try {
         await excluirCompetencia(competencia.id);

@@ -4,14 +4,13 @@ import { AREAS } from "../src/lib/domain";
 import competenciasDataRaw from "./data/competencias.json";
 import saberesDataRaw from "./data/saberes-curriculares.json";
 
-// Tipagem explícita dos JSONs — sem isso, arrays vazios (ex.: "habilidades": [])
+// Tipagem explícita dos JSONs — sem isso, arrays vazios (ex.: "temas": [])
 // fazem o TypeScript inferir `never[]`, o que quebra o build de produção.
 type CompetenciaSeed = {
   id: string;
   componenteId: string;
   ano: number;
   descricao: string;
-  habilidades: { id: string; descricao: string }[];
 };
 
 type SaberRef = { componenteId: string; titulo: string };
@@ -24,7 +23,6 @@ type SaberSeed = {
   temas: string[];
   habilitacao: string | null;
   competenciaIds: string[];
-  habilidadeIds: string[];
   prerequisitos: SaberRef[];
   integracoes: SaberRef[];
 };
@@ -41,7 +39,6 @@ async function main() {
   await prisma.saberCurricular.deleteMany();
   await prisma.metaValidacao.deleteMany();
   await prisma.professor.deleteMany();
-  await prisma.habilidade.deleteMany();
   await prisma.competencia.deleteMany();
   await prisma.componente.deleteMany();
   await prisma.area.deleteMany();
@@ -69,7 +66,7 @@ async function main() {
     }
   }
 
-  // Competências e habilidades, cadastradas por componente curricular — preencha
+  // Competências, cadastradas por componente curricular — preencha
   // prisma/data/competencias.json ou gerencie pela tela "Competências" do sistema.
   for (const c of competenciasData) {
     await prisma.competencia.create({
@@ -78,9 +75,6 @@ async function main() {
         componenteId: c.componenteId,
         ano: c.ano,
         descricao: c.descricao,
-        habilidades: {
-          create: c.habilidades.map((h) => ({ id: h.id, descricao: h.descricao })),
-        },
       },
     });
   }
@@ -99,7 +93,6 @@ async function main() {
         temas: JSON.stringify(s.temas),
         habilitacao: s.habilitacao,
         competencias: { connect: s.competenciaIds.map((cid) => ({ id: cid })) },
-        habilidades: { connect: s.habilidadeIds.map((hid) => ({ id: hid })) },
       },
     });
     saberIdPorChave.set(`${s.componenteId}::${s.titulo}`, saber.id);

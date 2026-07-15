@@ -2,14 +2,11 @@
 
 import { useState } from "react";
 import { CompetenciaEditModal } from "@/components/competencias/CompetenciaEditModal";
-import { HabilidadeEditModal } from "@/components/competencias/HabilidadeEditModal";
 import type { AREAS } from "@/lib/domain";
-import type { CompetenciaComHabilidadesVM } from "@/lib/cards-data";
+import type { CompetenciaComponenteVM } from "@/lib/cards-data";
 
 type Area = (typeof AREAS)[number];
-type Modal =
-  | { tipo: "competencia"; componenteId: string; competencia: { id: string; descricao: string } | null }
-  | { tipo: "habilidade"; competenciaId: string; habilidade: { id: string; descricao: string } | null };
+type Modal = { tipo: "competencia"; componenteId: string; competencia: { id: string; descricao: string } | null };
 
 export function CompetenciasBoard({
   area,
@@ -19,7 +16,7 @@ export function CompetenciasBoard({
 }: {
   area: Area;
   ano: number;
-  competencias: CompetenciaComHabilidadesVM[];
+  competencias: CompetenciaComponenteVM[];
   permissoes: Record<string, boolean>;
 }) {
   const [modal, setModal] = useState<Modal | null>(null);
@@ -29,7 +26,7 @@ export function CompetenciasBoard({
       <div className="mb-5">
         <h2 className="text-lg font-semibold text-ink">{area.nome}</h2>
         <p className="text-sm text-ink-faint">
-          Competências e habilidades por componente — depois marque cada uma nos saberes correspondentes.
+          Competências por componente — depois marque cada uma nos saberes correspondentes.
         </p>
       </div>
 
@@ -72,29 +69,6 @@ export function CompetenciasBoard({
                       <span className="mono mr-1.5 text-xs font-semibold text-brand-blue">{comp.id}</span>
                       <span className="text-sm text-ink">{comp.descricao}</span>
                     </button>
-
-                    <div className="mt-2 flex flex-col gap-1 border-t border-line pt-2 pl-3">
-                      {comp.habilidades.map((h) => (
-                        <button
-                          key={h.id}
-                          onClick={() =>
-                            podeEditar && setModal({ tipo: "habilidade", competenciaId: comp.id, habilidade: h })
-                          }
-                          className={"text-left text-xs" + (podeEditar ? " cursor-pointer hover:text-ink" : " cursor-default")}
-                        >
-                          <span className="mono mr-1.5 font-semibold text-ink-soft">{h.id}</span>
-                          <span className="text-ink-faint">{h.descricao}</span>
-                        </button>
-                      ))}
-                      {podeEditar && (
-                        <button
-                          onClick={() => setModal({ tipo: "habilidade", competenciaId: comp.id, habilidade: null })}
-                          className="mt-1 self-start rounded-md border border-dashed border-line-strong px-2 py-0.5 text-[11px] font-semibold text-ink-faint hover:border-ink-soft hover:text-ink-soft"
-                        >
-                          + Nova habilidade
-                        </button>
-                      )}
-                    </div>
                   </div>
                 ))}
               </div>
@@ -108,13 +82,6 @@ export function CompetenciasBoard({
           componenteId={modal.componenteId}
           ano={ano}
           competencia={modal.competencia}
-          onClose={() => setModal(null)}
-        />
-      )}
-      {modal?.tipo === "habilidade" && (
-        <HabilidadeEditModal
-          competenciaId={modal.competenciaId}
-          habilidade={modal.habilidade}
           onClose={() => setModal(null)}
         />
       )}

@@ -41,7 +41,7 @@ export function CardItem({
       <div className="font-medium text-ink">{card.titulo}</div>
       {card.competencias.length > 0 && (
         <div className="mt-1.5 flex flex-wrap gap-1 text-[11px] text-brand-blue">
-          <span>🎯 {card.competencias.length} competência(s) · {card.habilidades.length} habilidade(s)</span>
+          <span>🎯 {card.competencias.length} competência(s)</span>
         </div>
       )}
       {(card.prerequisitos.length > 0 || card.integracoes.length > 0) && (

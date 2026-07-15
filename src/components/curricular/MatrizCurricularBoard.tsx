@@ -2,7 +2,7 @@
 
 import { SaberComponenteSection } from "@/components/curricular/SaberComponenteSection";
 import type { AREAS } from "@/lib/domain";
-import type { SaberVM, SaberRelacionado, CompetenciaComHabilidadesVM } from "@/lib/cards-data";
+import type { SaberVM, SaberRelacionado, CompetenciaComponenteVM } from "@/lib/cards-data";
 
 type Area = (typeof AREAS)[number];
 
@@ -19,7 +19,7 @@ export function MatrizCurricularBoard({
   saberes: SaberVM[];
   permissoes: Record<string, boolean>;
   todosSaberes: SaberRelacionado[];
-  competenciasDisponiveis: CompetenciaComHabilidadesVM[];
+  competenciasDisponiveis: CompetenciaComponenteVM[];
 }) {
   return (
     <div>

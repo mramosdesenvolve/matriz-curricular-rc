@@ -56,12 +56,10 @@ function blocoComponente(
         const prereq = c.prerequisitos.map((p) => `${p.titulo} (${getComponente(p.componenteId)?.nome})`).join("; ");
         const integ = c.integracoes.map((p) => `${p.titulo} (${getComponente(p.componenteId)?.nome})`).join("; ");
         const competencias = c.competencias.map((comp) => `${comp.id}: ${comp.descricao}`).join(" | ");
-        const habilidades = c.habilidades.map((h) => `${h.id}: ${h.descricao}`).join(" | ");
         html += `<div class="item">
           <div class="t">${escapeHtml(c.titulo)}</div>
           ${c.descricao ? `<div class="d">${escapeHtml(c.descricao)}</div>` : ""}
           ${competencias ? `<div class="meta-line"><b>Competências:</b> ${escapeHtml(competencias)}</div>` : ""}
-          ${habilidades ? `<div class="meta-line"><b>Habilidades:</b> ${escapeHtml(habilidades)}</div>` : ""}
           ${prereq ? `<div class="meta-line"><b>Pré-requisitos:</b> ${escapeHtml(prereq)}</div>` : ""}
           ${integ ? `<div class="meta-line"><b>Integrações:</b> ${escapeHtml(integ)}</div>` : ""}
         </div>`;
@@ -77,7 +75,6 @@ function blocoSaber(saber: SaberVM) {
   const prereq = saber.prerequisitos.map((p) => `${p.titulo} (${getComponente(p.componenteId)?.nome})`).join("; ");
   const integ = saber.integracoes.map((p) => `${p.titulo} (${getComponente(p.componenteId)?.nome})`).join("; ");
   const competencias = saber.competencias.map((c) => `${c.id}: ${c.descricao}`).join(" | ");
-  const habilidades = saber.habilidades.map((h) => `${h.id}: ${h.descricao}`).join(" | ");
   const temas = saber.temas.join(", ");
   const habilitacaoNome = saber.habilitacao ? HABILITACOES.find((h) => h.id === saber.habilitacao)?.nome : null;
 
@@ -85,7 +82,6 @@ function blocoSaber(saber: SaberVM) {
     <div class="t">${escapeHtml(saber.titulo)}</div>
     ${saber.descricao ? `<div class="d">${escapeHtml(saber.descricao)}</div>` : ""}
     ${competencias ? `<div class="meta-line"><b>Competências:</b> ${escapeHtml(competencias)}</div>` : ""}
-    ${habilidades ? `<div class="meta-line"><b>Habilidades:</b> ${escapeHtml(habilidades)}</div>` : ""}
     ${temas ? `<div class="meta-line"><b>Temas:</b> ${escapeHtml(temas)}</div>` : ""}
     ${habilitacaoNome ? `<div class="meta-line"><b>Habilitação vinculada:</b> ${escapeHtml(habilitacaoNome)}</div>` : ""}
     ${prereq ? `<div class="meta-line"><b>Pré-requisitos:</b> ${escapeHtml(prereq)}</div>` : ""}

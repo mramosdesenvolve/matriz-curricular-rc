@@ -3,7 +3,6 @@ import type { Prisma } from "@prisma/client";
 
 const saberRelacoesInclude = {
   competencias: true,
-  habilidades: true,
   prerequisitosDe: { include: { destino: true } },
   prerequisitosPara: { include: { origem: true } },
 };
@@ -13,7 +12,6 @@ type SaberRaw = Prisma.SaberCurricularGetPayload<{ include: typeof saberRelacoes
 export type SaberRelacionado = { id: string; titulo: string; componenteId: string };
 
 export type CompetenciaVM = { id: string; descricao: string };
-export type HabilidadeVM = { id: string; descricao: string; competenciaId: string };
 
 export type SaberVM = {
   id: string;
@@ -22,7 +20,6 @@ export type SaberVM = {
   titulo: string;
   descricao: string;
   competencias: CompetenciaVM[];
-  habilidades: HabilidadeVM[];
   temas: string[];
   habilitacao: string | null;
   prerequisitos: SaberRelacionado[];
@@ -62,7 +59,6 @@ function toSaberVM(saber: SaberRaw): SaberVM {
     titulo: saber.titulo,
     descricao: saber.descricao,
     competencias: saber.competencias.map((c) => ({ id: c.id, descricao: c.descricao })),
-    habilidades: saber.habilidades.map((h) => ({ id: h.id, descricao: h.descricao, competenciaId: h.competenciaId })),
     temas: JSON.parse(saber.temas),
     habilitacao: saber.habilitacao,
     prerequisitos,
@@ -267,24 +263,21 @@ export function getDetalhamento(
   return map.get(detalhamentoKey(componenteId, semanaId)) ?? DETALHAMENTO_VAZIO;
 }
 
-export type CompetenciaComHabilidadesVM = CompetenciaVM & {
+export type CompetenciaComponenteVM = CompetenciaVM & {
   componenteId: string;
-  habilidades: { id: string; descricao: string }[];
 };
 
 export async function fetchCompetenciasParaComponentes(
   componenteIds: string[],
   ano: number
-): Promise<CompetenciaComHabilidadesVM[]> {
+): Promise<CompetenciaComponenteVM[]> {
   const rows = await prisma.competencia.findMany({
     where: { componenteId: { in: componenteIds }, ano },
-    include: { habilidades: true },
     orderBy: { id: "asc" },
   });
   return rows.map((c) => ({
     id: c.id,
     componenteId: c.componenteId,
     descricao: c.descricao,
-    habilidades: c.habilidades.map((h) => ({ id: h.id, descricao: h.descricao })),
   }));
 }

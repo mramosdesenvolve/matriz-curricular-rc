@@ -5,7 +5,7 @@ import { SaberItem } from "@/components/curricular/SaberItem";
 import { SaberEditModal } from "@/components/curricular/SaberEditModal";
 import { SaberReadOnlyModal } from "@/components/curricular/SaberReadOnlyModal";
 import type { ComponenteDef } from "@/lib/domain";
-import type { SaberVM, SaberRelacionado, CompetenciaComHabilidadesVM } from "@/lib/cards-data";
+import type { SaberVM, SaberRelacionado, CompetenciaComponenteVM } from "@/lib/cards-data";
 
 export function SaberComponenteSection({
   componente,
@@ -20,7 +20,7 @@ export function SaberComponenteSection({
   saberes: SaberVM[];
   podeEditar: boolean;
   todosSaberes: SaberRelacionado[];
-  competenciasDisponiveis: CompetenciaComHabilidadesVM[];
+  competenciasDisponiveis: CompetenciaComponenteVM[];
 }) {
   const [modal, setModal] = useState<{ tipo: "editar"; saberId: string | null } | { tipo: "leitura"; saberId: string } | null>(
     null

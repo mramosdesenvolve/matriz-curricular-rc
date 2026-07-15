@@ -6,12 +6,19 @@
     "descricao": "Consiste em observar uma situação real ou simulada e traduzi-la em um problema formulável — reconhecendo quem está envolvido, quais fatores influenciam a situação e onde estão os limites do que o grupo pode investigar. É o saber que abre a Fase 1 (Leitura e Estruturação) da trilha, evitando que o grupo parta direto para soluções sem antes entender o que está de fato em jogo.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ1"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ1"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "ccmi", "titulo": "Memória, identidade e território" },
-      { "componenteId": "oficinacao", "titulo": "Leitura e interpretação de textos" }
+      {
+        "componenteId": "ccmi",
+        "titulo": "Memória, identidade e território"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura e interpretação de textos"
+      }
     ]
   },
   {
@@ -21,14 +28,24 @@
     "descricao": "Transforma a leitura inicial do problema em hipóteses testáveis e perguntas que orientam a investigação — o que se imagina estar causando a situação, e o que precisa ser verificado para confirmar ou descartar essa hipótese. Estrutura o raciocínio do grupo antes de qualquer coleta de dados.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ1"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ1"
+    ],
     "prerequisitos": [
-      { "componenteId": "projeto", "titulo": "Leitura e delimitação de problemas" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Leitura e delimitação de problemas"
+      }
     ],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Raciocínio lógico e resolução de problemas" },
-      { "componenteId": "oficinacao", "titulo": "Oralidade e argumentação" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Raciocínio lógico e resolução de problemas"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Oralidade e argumentação"
+      }
     ]
   },
   {
@@ -38,14 +55,24 @@
     "descricao": "Reúne as técnicas básicas para coletar informações de primeira mão sobre o problema — observar sistematicamente uma situação, conduzir entrevistas, elaborar formulários de pesquisa e organizar idas a campo. Corresponde à Fase 2 (Orquestração Assistida), quando o grupo começa a mobilizar ferramentas de forma combinada.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ2"
+    ],
     "prerequisitos": [
-      { "componenteId": "projeto", "titulo": "Formulação de hipóteses e perguntas de investigação" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Formulação de hipóteses e perguntas de investigação"
+      }
     ],
     "integracoes": [
-      { "componenteId": "letramento-digital", "titulo": "Uso combinado de ferramentas de produtividade" },
-      { "componenteId": "oficinacao", "titulo": "Leitura crítica de fontes e dados" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Uso combinado de ferramentas de produtividade"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura crítica de fontes e dados"
+      }
     ]
   },
   {
@@ -55,15 +82,28 @@
     "descricao": "Trata do tratamento dos dados já coletados — organizá-los em categorias, cruzá-los entre si para identificar padrões e sintetizá-los em um diagnóstico compreensível para o grupo. É o momento em que dados brutos se transformam em entendimento sobre o problema.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ2"
+    ],
     "prerequisitos": [
-      { "componenteId": "projeto", "titulo": "Métodos de levantamento de dados" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Métodos de levantamento de dados"
+      }
     ],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Estatística básica" },
-      { "componenteId": "oficinacao", "titulo": "Leitura e construção de gráficos e tabelas" },
-      { "componenteId": "letramento-digital", "titulo": "Curadoria e tratamento de dados digitais" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Estatística básica"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura e construção de gráficos e tabelas"
+      },
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Curadoria e tratamento de dados digitais"
+      }
     ]
   },
   {
@@ -73,14 +113,24 @@
     "descricao": "Envolve gerar alternativas de solução a partir do diagnóstico construído, definir critérios claros para comparar essas alternativas e tomar uma decisão fundamentada sobre qual caminho seguir. Marca a transição da investigação para a intervenção, característica da Fase 3 (Autonomia Operativa).",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ3"
+    ],
     "prerequisitos": [
-      { "componenteId": "projeto", "titulo": "Organização e análise de informações" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Organização e análise de informações"
+      }
     ],
     "integracoes": [
-      { "componenteId": "ccmi", "titulo": "Desigualdades estruturais" },
-      { "componenteId": "oficinacao", "titulo": "Oralidade e argumentação" }
+      {
+        "componenteId": "ccmi",
+        "titulo": "Desigualdades estruturais"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Oralidade e argumentação"
+      }
     ]
   },
   {
@@ -90,14 +140,24 @@
     "descricao": "É o saber de transformar uma ideia de solução em algo tangível e testável — desde esboços simples em papel até versões mais elaboradas, digitais ou físicas, conforme a natureza do case. Prototipar permite ao grupo visualizar e ajustar a solução antes de investir mais tempo nela.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ3"
+    ],
     "prerequisitos": [
-      { "componenteId": "projeto", "titulo": "Lógica de projetação de soluções" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Lógica de projetação de soluções"
+      }
     ],
     "integracoes": [
-      { "componenteId": "letramento-digital", "titulo": "Prototipagem digital" },
-      { "componenteId": "oficinacao", "titulo": "Noções de geometria e medidas" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Prototipagem digital"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Noções de geometria e medidas"
+      }
     ]
   },
   {
@@ -107,15 +167,29 @@
     "descricao": "Consiste em confrontar o protótipo com a realidade — aplicá-lo, observar seus efeitos, comparar os resultados com os critérios definidos anteriormente e ajustá-lo quantas vezes forem necessárias. É o saber que garante que a solução não fique apenas no campo da ideia.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ3", "PROJ4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ3",
+      "PROJ4"
+    ],
     "prerequisitos": [
-      { "componenteId": "projeto", "titulo": "Prototipagem" },
-      { "componenteId": "projeto", "titulo": "Lógica de projetação de soluções" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Prototipagem"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Lógica de projetação de soluções"
+      }
     ],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Operações e cálculos aplicados" },
-      { "componenteId": "letramento-digital", "titulo": "Pesquisa qualificada" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Operações e cálculos aplicados"
+      },
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Pesquisa qualificada"
+      }
     ]
   },
   {
@@ -125,12 +199,20 @@
     "descricao": "Reúne as habilidades de organização coletiva necessárias para que o grupo funcione ao longo de todo o percurso — distribuir tarefas de forma equilibrada, manter a comunicação entre os membros e lidar construtivamente com divergências internas. Atravessa todas as fases da trilha, tornando-se mais visível à medida que a complexidade dos problemas cresce.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ3", "PROJ4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ3",
+      "PROJ4"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "ccmi", "titulo": "Desigualdades estruturais" },
-      { "componenteId": "oficinacao", "titulo": "Oralidade e argumentação" }
+      {
+        "componenteId": "ccmi",
+        "titulo": "Desigualdades estruturais"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Oralidade e argumentação"
+      }
     ]
   },
   {
@@ -140,12 +222,19 @@
     "descricao": "Trata de como documentar, ao longo de todo o percurso, as decisões tomadas, os dados coletados, as versões de protótipos e os aprendizados obtidos — de modo que o portfólio final seja um relato fiel do processo, e não apenas do resultado. Esse registro contínuo sustenta a Fase 4 (Consolidação e Projeção).",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ5"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Produção textual" },
-      { "componenteId": "letramento-digital", "titulo": "Uso combinado de ferramentas de produtividade" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Produção textual"
+      },
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Uso combinado de ferramentas de produtividade"
+      }
     ]
   },
   {
@@ -155,17 +244,26 @@
     "descricao": "Envolve organizar o processo e os resultados do projeto em uma apresentação clara para públicos variados — a turma, a equipe da Rede Cruzada ou parceiros externos —, explicitando não apenas o que foi feito, mas como e por que as escolhas foram tomadas. Encerra a trilha formativa na Fase 4.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["PROJ5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "PROJ5"
+    ],
     "prerequisitos": [
-      { "componenteId": "projeto", "titulo": "Estrutura do portfólio" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Estrutura do portfólio"
+      }
     ],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Oralidade e argumentação" },
-      { "componenteId": "letramento-digital", "titulo": "Comunicação e colaboração digital" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Oralidade e argumentação"
+      },
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Comunicação e colaboração digital"
+      }
     ]
   },
-
   {
     "componenteId": "oficinacao",
     "ano": 0,
@@ -173,12 +271,19 @@
     "descricao": "Refere-se à capacidade de compreender textos de gêneros distintos — relatórios, reportagens, textos técnicos e informativos — identificando ideias centrais, informações relevantes e a intenção de quem escreve. É a base sobre a qual se apoiam tanto a produção textual do grupo quanto a leitura dos materiais de pesquisa do case.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC1"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC1"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Leitura e delimitação de problemas" },
-      { "componenteId": "ccmi", "titulo": "Leitura crítica de mídia e narrativas" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Leitura e delimitação de problemas"
+      },
+      {
+        "componenteId": "ccmi",
+        "titulo": "Leitura crítica de mídia e narrativas"
+      }
     ]
   },
   {
@@ -188,14 +293,24 @@
     "descricao": "Trata da escrita de textos organizados em torno de uma intenção comunicativa clara — defender um ponto de vista, propor uma solução ou relatar um processo —, com estrutura, progressão de ideias e adequação ao leitor pretendido.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC2"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Leitura e interpretação de textos" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura e interpretação de textos"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Estrutura do portfólio" },
-      { "componenteId": "projeto", "titulo": "Comunicação de resultados" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Estrutura do portfólio"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Comunicação de resultados"
+      }
     ]
   },
   {
@@ -205,14 +320,25 @@
     "descricao": "Envolve os recursos que dão unidade ao texto — conectivos, retomadas, progressão lógica de parágrafos — de modo que as ideias se encadeiem de forma compreensível para quem lê, sem saltos ou contradições internas.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC2", "OFIC5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC2",
+      "OFIC5"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Produção textual" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Produção textual"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Comunicação de resultados" },
-      { "componenteId": "projeto", "titulo": "Estrutura do portfólio" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Comunicação de resultados"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Estrutura do portfólio"
+      }
     ]
   },
   {
@@ -222,13 +348,20 @@
     "descricao": "Reúne os elementos gramaticais — concordância, pontuação, regência — tratados não como regras isoladas, mas como recursos que evitam ambiguidade e reforçam a clareza do que o grupo quer comunicar em seus textos.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC2"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Produção textual" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Produção textual"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Estrutura do portfólio" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Estrutura do portfólio"
+      }
     ]
   },
   {
@@ -238,14 +371,24 @@
     "descricao": "Trata da organização do discurso falado — sequência de ideias, uso de pausas e ênfases, adequação ao público — para que o estudante consiga expor e defender oralmente uma ideia ou proposta com clareza e segurança.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC5"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Coesão, coerência e organização textual" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Coesão, coerência e organização textual"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Comunicação de resultados" },
-      { "componenteId": "ccmi", "titulo": "Movimentos sociais e protagonismo negro e juvenil" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Comunicação de resultados"
+      },
+      {
+        "componenteId": "ccmi",
+        "titulo": "Movimentos sociais e protagonismo negro e juvenil"
+      }
     ]
   },
   {
@@ -255,14 +398,24 @@
     "descricao": "Consiste em avaliar a confiabilidade e os limites de uma fonte textual — quem escreve, com que intenção, com que embasamento — e em identificar como dados são apresentados, ou distorcidos, dentro de um texto.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC1"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC1"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Leitura e interpretação de textos" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura e interpretação de textos"
+      }
     ],
     "integracoes": [
-      { "componenteId": "letramento-digital", "titulo": "Pesquisa qualificada" },
-      { "componenteId": "ccmi", "titulo": "Leitura crítica de mídia e narrativas" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Pesquisa qualificada"
+      },
+      {
+        "componenteId": "ccmi",
+        "titulo": "Leitura crítica de mídia e narrativas"
+      }
     ]
   },
   {
@@ -272,11 +425,16 @@
     "descricao": "Reúne as ferramentas estatísticas mais recorrentes na leitura de um case — calcular e interpretar médias, porcentagens e proporções para descrever tendências simples nos dados coletados pelo grupo.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC3", "OFIC4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC3",
+      "OFIC4"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Organização e análise de informações" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Organização e análise de informações"
+      }
     ]
   },
   {
@@ -286,14 +444,24 @@
     "descricao": "Envolve tanto ler gráficos e tabelas já prontos quanto construir as próprias representações a partir dos dados do grupo, escolhendo o tipo de gráfico mais adequado a cada tipo de informação.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC4"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Estatística básica" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Estatística básica"
+      }
     ],
     "integracoes": [
-      { "componenteId": "letramento-digital", "titulo": "Curadoria e tratamento de dados digitais" },
-      { "componenteId": "projeto", "titulo": "Organização e análise de informações" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Curadoria e tratamento de dados digitais"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Organização e análise de informações"
+      }
     ]
   },
   {
@@ -303,11 +471,15 @@
     "descricao": "Trata da capacidade de identificar a estrutura lógica de um problema — o que é dado, o que se quer encontrar, que caminho leva de um ao outro —, independentemente do conteúdo matemático específico envolvido.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC3"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "letramento-digital", "titulo": "Pensamento computacional" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Pensamento computacional"
+      }
     ]
   },
   {
@@ -317,14 +489,24 @@
     "descricao": "Refere-se ao uso de operações matemáticas em situações concretas do case — calcular um orçamento, estimar uma quantidade, converter uma medida —, sempre a partir de uma necessidade real do projeto, e não de exercícios abstratos.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC3"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Raciocínio lógico e resolução de problemas" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Raciocínio lógico e resolução de problemas"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Lógica de projetação de soluções" },
-      { "componenteId": "projeto", "titulo": "Testagem e validação de soluções" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Lógica de projetação de soluções"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Testagem e validação de soluções"
+      }
     ]
   },
   {
@@ -334,13 +516,20 @@
     "descricao": "Envolve representar uma situação do case por meio de uma expressão ou equação simples — por exemplo, relacionar duas variáveis que crescem ou diminuem juntas — como forma de generalizar um padrão identificado nos dados.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC3"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Operações e cálculos aplicados" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Operações e cálculos aplicados"
+      }
     ],
     "integracoes": [
-      { "componenteId": "letramento-digital", "titulo": "Pensamento computacional" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Pensamento computacional"
+      }
     ]
   },
   {
@@ -350,16 +539,22 @@
     "descricao": "Reúne noções de forma, espaço e medida mobilizadas quando o case exige construir algo físico ou representá-lo em escala — dimensões, área, proporção entre partes de um protótipo.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["OFIC3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "OFIC3"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Operações e cálculos aplicados" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Operações e cálculos aplicados"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Prototipagem" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Prototipagem"
+      }
     ]
   },
-
   {
     "componenteId": "ccmi",
     "ano": 0,
@@ -367,12 +562,20 @@
     "descricao": "Contempla a história de povos africanos e afrodescendentes no Brasil, suas contribuições culturais, sociais e técnicas, e os processos de resistência e luta por reconhecimento — conteúdo obrigatório por lei e estruturante da perspectiva afro-referenciada do projeto.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI2", "CCMI4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI2",
+      "CCMI4"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Leitura e delimitação de problemas" },
-      { "componenteId": "letramento-digital", "titulo": "Pesquisa qualificada" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Leitura e delimitação de problemas"
+      },
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Pesquisa qualificada"
+      }
     ]
   },
   {
@@ -382,12 +585,19 @@
     "descricao": "Aborda a história, as cosmovisões e as contribuições de povos indígenas no Brasil, bem como os processos de violência e apagamento a que foram submetidos — conteúdo obrigatório por lei, que amplia o repertório de referências não hegemônicas do projeto.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI2"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Leitura e delimitação de problemas" },
-      { "componenteId": "oficinacao", "titulo": "Leitura e interpretação de textos" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Leitura e delimitação de problemas"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura e interpretação de textos"
+      }
     ]
   },
   {
@@ -397,12 +607,19 @@
     "descricao": "Trata dos fundamentos da vida em sociedade — direitos e deveres individuais e coletivos, formas de participação e organização social —, oferecendo um vocabulário conceitual para que os estudantes situem seus projetos no campo mais amplo da vida pública.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI1"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI1"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Trabalho em equipe" },
-      { "componenteId": "oficinacao", "titulo": "Oralidade e argumentação" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Trabalho em equipe"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Oralidade e argumentação"
+      }
     ]
   },
   {
@@ -412,11 +629,16 @@
     "descricao": "Envolve refletir sobre como memória e identidade se constroem em relação a um lugar — a história pessoal, familiar e comunitária do estudante e de seu território —, reconhecendo essas narrativas como matéria legítima de conhecimento.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI2", "CCMI4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI2",
+      "CCMI4"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Leitura e delimitação de problemas" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Leitura e delimitação de problemas"
+      }
     ]
   },
   {
@@ -426,14 +648,24 @@
     "descricao": "Apresenta os conceitos que permitem nomear e analisar desigualdades que não são acidentais, mas produzidas historicamente e reproduzidas nas instituições — fornecendo ferramentas para que os estudantes leiam criticamente as próprias condições de vida e as de seus territórios.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI3"
+    ],
     "prerequisitos": [
-      { "componenteId": "ccmi", "titulo": "Conceitos de cidadania" }
+      {
+        "componenteId": "ccmi",
+        "titulo": "Conceitos de cidadania"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Trabalho em equipe" },
-      { "componenteId": "projeto", "titulo": "Testagem e validação de soluções" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Trabalho em equipe"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Testagem e validação de soluções"
+      }
     ]
   },
   {
@@ -443,14 +675,25 @@
     "descricao": "Aborda experiências históricas e contemporâneas de mobilização coletiva por direitos, com destaque para a atuação de pessoas negras e de jovens, oferecendo referências de agência e transformação social para os estudantes.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI2", "CCMI5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI2",
+      "CCMI5"
+    ],
     "prerequisitos": [
-      { "componenteId": "ccmi", "titulo": "História e cultura afro-brasileira e africana" }
+      {
+        "componenteId": "ccmi",
+        "titulo": "História e cultura afro-brasileira e africana"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Comunicação de resultados" },
-      { "componenteId": "oficinacao", "titulo": "Oralidade e argumentação" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Comunicação de resultados"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Oralidade e argumentação"
+      }
     ]
   },
   {
@@ -460,11 +703,15 @@
     "descricao": "Envolve o reconhecimento de manifestações culturais — música, festas, linguagens, práticas comunitárias — próprias do território dos estudantes, valorizando-as como repertório legítimo de criação e conhecimento.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI2"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Lógica de projetação de soluções" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Lógica de projetação de soluções"
+      }
     ]
   },
   {
@@ -474,14 +721,24 @@
     "descricao": "Apresenta os dois conceitos que estruturam a perspectiva teórica do projeto: o reconhecimento histórico de saberes técnicos múltiplos produzidos por populações negras (afropolimatismo) e a projeção de futuros em que essas populações ocupam lugares de criação e protagonismo técnico (afrofuturismo).",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI4"
+    ],
     "prerequisitos": [
-      { "componenteId": "ccmi", "titulo": "História e cultura afro-brasileira e africana" }
+      {
+        "componenteId": "ccmi",
+        "titulo": "História e cultura afro-brasileira e africana"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Lógica de projetação de soluções" },
-      { "componenteId": "letramento-digital", "titulo": "Inteligência artificial: conceitos e uso ético" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Lógica de projetação de soluções"
+      },
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Inteligência artificial: conceitos e uso ético"
+      }
     ]
   },
   {
@@ -491,15 +748,22 @@
     "descricao": "Trata de identificar como diferentes veículos e formatos constroem narrativas sobre grupos sociais, territórios e eventos — reconhecendo pontos de vista, omissões e interesses por trás de uma representação.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["CCMI1", "CCMI5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "CCMI1",
+      "CCMI5"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Leitura crítica de fontes e dados" },
-      { "componenteId": "letramento-digital", "titulo": "Pesquisa qualificada" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura crítica de fontes e dados"
+      },
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Pesquisa qualificada"
+      }
     ]
   },
-
   {
     "componenteId": "letramento-digital",
     "ano": 0,
@@ -507,14 +771,24 @@
     "descricao": "Reúne quatro operações mentais que estruturam a resolução de problemas com apoio de tecnologia — quebrar um problema em partes menores, identificar regularidades, generalizar o essencial e descrever passos ordenados para chegar a uma solução —, independentemente de qualquer ferramenta específica.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD3"
+    ],
     "prerequisitos": [
-      { "componenteId": "oficinacao", "titulo": "Raciocínio lógico e resolução de problemas" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Raciocínio lógico e resolução de problemas"
+      }
     ],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Raciocínio lógico e resolução de problemas" },
-      { "componenteId": "projeto", "titulo": "Lógica de projetação de soluções" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Raciocínio lógico e resolução de problemas"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Lógica de projetação de soluções"
+      }
     ]
   },
   {
@@ -524,13 +798,20 @@
     "descricao": "Envolve compreender estruturas básicas presentes em qualquer linguagem ou ferramenta de automação — sequência, condição, repetição — para que o estudante consiga ler e ajustar processos automatizados simples, mesmo sem programar formalmente.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD3"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD3"
+    ],
     "prerequisitos": [
-      { "componenteId": "letramento-digital", "titulo": "Pensamento computacional" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Pensamento computacional"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Prototipagem" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Prototipagem"
+      }
     ]
   },
   {
@@ -540,13 +821,24 @@
     "descricao": "Trata de operar e combinar ferramentas digitais de uso comum — não isoladamente, mas conforme a necessidade do momento do projeto: uma planilha para organizar dados, um formulário para coletar respostas, uma apresentação para comunicar resultados.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD1", "LETD2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD1",
+      "LETD2"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Métodos de levantamento de dados" },
-      { "componenteId": "projeto", "titulo": "Estrutura do portfólio" },
-      { "componenteId": "oficinacao", "titulo": "Leitura e construção de gráficos e tabelas" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Métodos de levantamento de dados"
+      },
+      {
+        "componenteId": "projeto",
+        "titulo": "Estrutura do portfólio"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura e construção de gráficos e tabelas"
+      }
     ]
   },
   {
@@ -556,14 +848,25 @@
     "descricao": "Aborda o funcionamento geral de ferramentas de inteligência artificial, suas aplicações possíveis dentro de um projeto, e também seus limites e riscos — vieses, erros, dependência excessiva —, formando um uso crítico e não ingênuo dessas tecnologias.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD2", "LETD5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD2",
+      "LETD5"
+    ],
     "prerequisitos": [
-      { "componenteId": "letramento-digital", "titulo": "Uso combinado de ferramentas de produtividade" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Uso combinado de ferramentas de produtividade"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Métodos de levantamento de dados" },
-      { "componenteId": "ccmi", "titulo": "Afropolimatismo e afrofuturismo" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Métodos de levantamento de dados"
+      },
+      {
+        "componenteId": "ccmi",
+        "titulo": "Afropolimatismo e afrofuturismo"
+      }
     ]
   },
   {
@@ -573,14 +876,24 @@
     "descricao": "Envolve selecionar, limpar e estruturar dados em meio digital — descartando informações irrelevantes ou duplicadas, organizando-os de forma consistente — para que possam ser analisados com confiabilidade pelo grupo.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD4"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD4"
+    ],
     "prerequisitos": [
-      { "componenteId": "letramento-digital", "titulo": "Uso combinado de ferramentas de produtividade" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Uso combinado de ferramentas de produtividade"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Organização e análise de informações" },
-      { "componenteId": "oficinacao", "titulo": "Leitura e construção de gráficos e tabelas" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Organização e análise de informações"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura e construção de gráficos e tabelas"
+      }
     ]
   },
   {
@@ -590,12 +903,19 @@
     "descricao": "Trata de buscar informações on-line de forma direcionada, avaliar a confiabilidade das fontes encontradas e checar dados antes de incorporá-los ao case, evitando a reprodução de informações falsas ou imprecisas.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD1"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD1"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "oficinacao", "titulo": "Leitura crítica de fontes e dados" },
-      { "componenteId": "ccmi", "titulo": "Leitura crítica de mídia e narrativas" }
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Leitura crítica de fontes e dados"
+      },
+      {
+        "componenteId": "ccmi",
+        "titulo": "Leitura crítica de mídia e narrativas"
+      }
     ]
   },
   {
@@ -605,13 +925,21 @@
     "descricao": "Reúne o uso de ferramentas digitais simples para representar visualmente uma solução antes de construí-la de fato — telas de um aplicativo, layout de um material gráfico, estrutura de um site —, permitindo testar a ideia com outras pessoas antes de investir mais tempo nela.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD1", "LETD2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD1",
+      "LETD2"
+    ],
     "prerequisitos": [
-      { "componenteId": "letramento-digital", "titulo": "Uso combinado de ferramentas de produtividade" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Uso combinado de ferramentas de produtividade"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Prototipagem" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Prototipagem"
+      }
     ]
   },
   {
@@ -621,12 +949,19 @@
     "descricao": "Aborda cuidados básicos de proteção de dados pessoais e de terceiros, privacidade em ferramentas on-line e uso responsável de imagens e informações coletadas durante o projeto — especialmente relevante quando o case envolve entrevistas ou dados do território.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD5"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD5"
+    ],
     "prerequisitos": [],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Métodos de levantamento de dados" },
-      { "componenteId": "ccmi", "titulo": "Conceitos de cidadania" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Métodos de levantamento de dados"
+      },
+      {
+        "componenteId": "ccmi",
+        "titulo": "Conceitos de cidadania"
+      }
     ]
   },
   {
@@ -636,14 +971,24 @@
     "descricao": "Envolve o uso de ferramentas digitais para produzir e revisar materiais em conjunto — documentos compartilhados, apresentações colaborativas — e para comunicar resultados de forma visualmente organizada a diferentes públicos.",
     "temas": [],
     "habilitacao": null,
-    "competenciaIds": ["LETD2"],
-    "habilidadeIds": [],
+    "competenciaIds": [
+      "LETD2"
+    ],
     "prerequisitos": [
-      { "componenteId": "letramento-digital", "titulo": "Uso combinado de ferramentas de produtividade" }
+      {
+        "componenteId": "letramento-digital",
+        "titulo": "Uso combinado de ferramentas de produtividade"
+      }
     ],
     "integracoes": [
-      { "componenteId": "projeto", "titulo": "Comunicação de resultados" },
-      { "componenteId": "oficinacao", "titulo": "Oralidade e argumentação" }
+      {
+        "componenteId": "projeto",
+        "titulo": "Comunicação de resultados"
+      },
+      {
+        "componenteId": "oficinacao",
+        "titulo": "Oralidade e argumentação"
+      }
     ]
   }
 ]

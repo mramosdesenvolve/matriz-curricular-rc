@@ -15,9 +15,7 @@ export function SaberItem({ saber, onClick }: { saber: SaberVM; onClick: () => v
       <div className="font-medium text-ink">{saber.titulo}</div>
       {saber.competencias.length > 0 && (
         <div className="mt-1.5 flex flex-wrap gap-1 text-[11px] text-brand-blue">
-          <span>
-            🎯 {saber.competencias.length} competência(s) · {saber.habilidades.length} habilidade(s)
-          </span>
+          <span>🎯 {saber.competencias.length} competência(s)</span>
         </div>
       )}
       {(saber.prerequisitos.length > 0 || saber.integracoes.length > 0) && (

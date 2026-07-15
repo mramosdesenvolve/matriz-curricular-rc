@@ -3,140 +3,120 @@
     "id": "PROJ1",
     "componenteId": "projeto",
     "ano": 0,
-    "descricao": "Ler e delimitar problemas reais ou simulados, identificando variáveis, dados relevantes e formulando hipóteses e perguntas consistentes.",
-    "habilidades": []
+    "descricao": "Ler e delimitar problemas reais ou simulados, identificando variáveis, dados relevantes e formulando hipóteses e perguntas consistentes."
   },
   {
     "id": "PROJ2",
     "componenteId": "projeto",
     "ano": 0,
-    "descricao": "Levantar, organizar e cruzar dados e informações, articulando ferramentas digitais e inteligências artificiais na investigação do problema.",
-    "habilidades": []
+    "descricao": "Levantar, organizar e cruzar dados e informações, articulando ferramentas digitais e inteligências artificiais na investigação do problema."
   },
   {
     "id": "PROJ3",
     "componenteId": "projeto",
     "ano": 0,
-    "descricao": "Projetar, prototipar e testar soluções ou intervenções para os problemas identificados, assumindo protagonismo e autonomia crescentes.",
-    "habilidades": []
+    "descricao": "Projetar, prototipar e testar soluções ou intervenções para os problemas identificados, assumindo protagonismo e autonomia crescentes."
   },
   {
     "id": "PROJ4",
     "componenteId": "projeto",
     "ano": 0,
-    "descricao": "Avaliar efeitos, limites e resultados das soluções implementadas, revisando estratégias a partir da experimentação e do erro.",
-    "habilidades": []
+    "descricao": "Avaliar efeitos, limites e resultados das soluções implementadas, revisando estratégias a partir da experimentação e do erro."
   },
   {
     "id": "PROJ5",
     "componenteId": "projeto",
     "ano": 0,
-    "descricao": "Sistematizar o processo em portfólio (case) e comunicar/defender publicamente escolhas, aprendizagens e resultados.",
-    "habilidades": []
+    "descricao": "Sistematizar o processo em portfólio (case) e comunicar/defender publicamente escolhas, aprendizagens e resultados."
   },
   {
     "id": "OFIC1",
     "componenteId": "oficinacao",
     "ano": 0,
-    "descricao": "Ler e interpretar criticamente textos, dados e informações relacionados às necessidades do projeto em desenvolvimento.",
-    "habilidades": []
+    "descricao": "Ler e interpretar criticamente textos, dados e informações relacionados às necessidades do projeto em desenvolvimento."
   },
   {
     "id": "OFIC2",
     "componenteId": "oficinacao",
     "ano": 0,
-    "descricao": "Produzir textos escritos claros, coesos e argumentativos para comunicar propostas, processos e resultados do projeto.",
-    "habilidades": []
+    "descricao": "Produzir textos escritos claros, coesos e argumentativos para comunicar propostas, processos e resultados do projeto."
   },
   {
     "id": "OFIC3",
     "componenteId": "oficinacao",
     "ano": 0,
-    "descricao": "Mobilizar raciocínio lógico-matemático para resolver problemas quantitativos emergentes do projeto (cálculos, proporções, estimativas).",
-    "habilidades": []
+    "descricao": "Mobilizar raciocínio lógico-matemático para resolver problemas quantitativos emergentes do projeto (cálculos, proporções, estimativas)."
   },
   {
     "id": "OFIC4",
     "componenteId": "oficinacao",
     "ano": 0,
-    "descricao": "Organizar, representar e interpretar dados (tabelas, gráficos, planilhas) a serviço da tomada de decisão no projeto.",
-    "habilidades": []
+    "descricao": "Organizar, representar e interpretar dados (tabelas, gráficos, planilhas) a serviço da tomada de decisão no projeto."
   },
   {
     "id": "OFIC5",
     "componenteId": "oficinacao",
     "ano": 0,
-    "descricao": "Estruturar argumentação oral e escrita, justificando escolhas com base em evidências, para a apresentação e defesa do case.",
-    "habilidades": []
+    "descricao": "Estruturar argumentação oral e escrita, justificando escolhas com base em evidências, para a apresentação e defesa do case."
   },
   {
     "id": "CCMI1",
     "componenteId": "ccmi",
     "ano": 0,
-    "descricao": "Analisar criticamente dimensões sociais, históricas, políticas e culturais relacionadas aos problemas trabalhados no projeto.",
-    "habilidades": []
+    "descricao": "Analisar criticamente dimensões sociais, históricas, políticas e culturais relacionadas aos problemas trabalhados no projeto."
   },
   {
     "id": "CCMI2",
     "componenteId": "ccmi",
     "ano": 0,
-    "descricao": "Reconhecer e valorizar repertórios culturais, territoriais e afro-referenciados como fontes legítimas de saber e de leitura de mundo.",
-    "habilidades": []
+    "descricao": "Reconhecer e valorizar repertórios culturais, territoriais e afro-referenciados como fontes legítimas de saber e de leitura de mundo."
   },
   {
     "id": "CCMI3",
     "componenteId": "ccmi",
     "ano": 0,
-    "descricao": "Relacionar desigualdades estruturais (raça, território, classe) ao contexto dos problemas e das soluções propostas.",
-    "habilidades": []
+    "descricao": "Relacionar desigualdades estruturais (raça, território, classe) ao contexto dos problemas e das soluções propostas."
   },
   {
     "id": "CCMI4",
     "componenteId": "ccmi",
     "ano": 0,
-    "descricao": "Mobilizar referenciais afro-brasileiros e afro-diaspóricos (memória, identidade, saberes) para qualificar análises e propostas.",
-    "habilidades": []
+    "descricao": "Mobilizar referenciais afro-brasileiros e afro-diaspóricos (memória, identidade, saberes) para qualificar análises e propostas."
   },
   {
     "id": "CCMI5",
     "componenteId": "ccmi",
     "ano": 0,
-    "descricao": "Exercitar postura crítica e cidadã, tensionando leituras simplificadas da realidade e das soluções apresentadas.",
-    "habilidades": []
+    "descricao": "Exercitar postura crítica e cidadã, tensionando leituras simplificadas da realidade e das soluções apresentadas."
   },
   {
     "id": "LETD1",
     "componenteId": "letramento-digital",
     "ano": 0,
-    "descricao": "Identificar e selecionar, de forma crítica, ferramentas e tecnologias digitais adequadas a cada necessidade específica do projeto.",
-    "habilidades": []
+    "descricao": "Identificar e selecionar, de forma crítica, ferramentas e tecnologias digitais adequadas a cada necessidade específica do projeto."
   },
   {
     "id": "LETD2",
     "componenteId": "letramento-digital",
     "ano": 0,
-    "descricao": "Combinar e articular diferentes ferramentas e tecnologias (incluindo inteligências artificiais) de forma integrada para produzir, organizar e apresentar soluções.",
-    "habilidades": []
+    "descricao": "Combinar e articular diferentes ferramentas e tecnologias (incluindo inteligências artificiais) de forma integrada para produzir, organizar e apresentar soluções."
   },
   {
     "id": "LETD3",
     "componenteId": "letramento-digital",
     "ano": 0,
-    "descricao": "Aplicar princípios de pensamento computacional (decomposição, reconhecimento de padrões, abstração, algoritmos) na estruturação de problemas e soluções.",
-    "habilidades": []
+    "descricao": "Aplicar princípios de pensamento computacional (decomposição, reconhecimento de padrões, abstração, algoritmos) na estruturação de problemas e soluções."
   },
   {
     "id": "LETD4",
     "componenteId": "letramento-digital",
     "ano": 0,
-    "descricao": "Organizar e tratar dados digitalmente (planilhas, formulários, bases de dados) para subsidiar análises e decisões do projeto.",
-    "habilidades": []
+    "descricao": "Organizar e tratar dados digitalmente (planilhas, formulários, bases de dados) para subsidiar análises e decisões do projeto."
   },
   {
     "id": "LETD5",
     "componenteId": "letramento-digital",
     "ano": 0,
-    "descricao": "Avaliar criticamente o uso das tecnologias mobilizadas, considerando limites, riscos e implicações éticas no contexto do problema.",
-    "habilidades": []
+    "descricao": "Avaliar criticamente o uso das tecnologias mobilizadas, considerando limites, riscos e implicações éticas no contexto do problema."
   }
 ]

@@ -48,26 +48,12 @@ export function CardPlacementModal({
 
         {card.competencias.length > 0 && (
           <div>
-            <label className="mb-1 block text-xs font-semibold text-ink-soft">Competências e habilidades</label>
+            <label className="mb-1 block text-xs font-semibold text-ink-soft">Competências</label>
             <div className="flex flex-col gap-2">
               {card.competencias.map((c) => (
                 <div key={c.id} className="rounded-lg border border-brand-blue-bg bg-brand-blue-bg/40 px-3 py-2 text-sm">
-                  <div>
-                    <span className="mono mr-1 text-xs font-semibold text-brand-blue">{c.id}</span>
-                    {c.descricao}
-                  </div>
-                  {card.habilidades.filter((h) => h.competenciaId === c.id).length > 0 && (
-                    <ul className="mt-1.5 flex flex-col gap-1 border-t border-brand-blue-bg pt-1.5">
-                      {card.habilidades
-                        .filter((h) => h.competenciaId === c.id)
-                        .map((h) => (
-                          <li key={h.id} className="text-xs text-ink-soft">
-                            <span className="mono mr-1 font-semibold">{h.id}</span>
-                            {h.descricao}
-                          </li>
-                        ))}
-                    </ul>
-                  )}
+                  <span className="mono mr-1 text-xs font-semibold text-brand-blue">{c.id}</span>
+                  {c.descricao}
                 </div>
               ))}
             </div>
