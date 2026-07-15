@@ -14,6 +14,8 @@ type CompetenciaSeed = {
   habilidades: { id: string; descricao: string }[];
 };
 
+type SaberRef = { componenteId: string; titulo: string };
+
 type SaberSeed = {
   componenteId: string;
   ano: number;
@@ -23,6 +25,8 @@ type SaberSeed = {
   habilitacao: string | null;
   competenciaIds: string[];
   habilidadeIds: string[];
+  prerequisitos: SaberRef[];
+  integracoes: SaberRef[];
 };
 
 const competenciasData = competenciasDataRaw as CompetenciaSeed[];
@@ -84,8 +88,9 @@ async function main() {
   // Matriz Curricular — catálogo de saberes da instituição, preencha
   // prisma/data/saberes-curriculares.json. Nenhum saber vem pré-posicionado
   // no Mapa por Fases: a curadoria/posicionamento é feita pelos professores na UI.
+  const saberIdPorChave = new Map<string, string>();
   for (const s of saberesData) {
-    await prisma.saberCurricular.create({
+    const saber = await prisma.saberCurricular.create({
       data: {
         componenteId: s.componenteId,
         ano: s.ano,
@@ -97,6 +102,45 @@ async function main() {
         habilidades: { connect: s.habilidadeIds.map((hid) => ({ id: hid })) },
       },
     });
+    saberIdPorChave.set(`${s.componenteId}::${s.titulo}`, saber.id);
+  }
+
+  // Segunda passagem: agora que todos os saberes existem, resolve as referências
+  // de pré-requisito e integração (por componente + título) em SaberRelacao reais.
+  function resolverSaberRef(ref: SaberRef, contexto: string): string | null {
+    const id = saberIdPorChave.get(`${ref.componenteId}::${ref.titulo}`);
+    if (!id) {
+      console.warn(`Referência não encontrada (${contexto}): ${ref.componenteId} :: ${ref.titulo}`);
+      return null;
+    }
+    return id;
+  }
+
+  // Integração é simétrica: como o documento descreve a relação a partir dos
+  // dois saberes envolvidos, evitamos criar as duas direções (o que faria a UI
+  // exibir a mesma integração duplicada, já que ela combina prerequisitosDe e
+  // prerequisitosPara para esse tipo).
+  const paresIntegracaoCriados = new Set<string>();
+
+  for (const s of saberesData) {
+    const destinoId = saberIdPorChave.get(`${s.componenteId}::${s.titulo}`)!;
+    for (const ref of s.prerequisitos) {
+      const origemId = resolverSaberRef(ref, `pré-requisito de "${s.titulo}"`);
+      if (!origemId) continue;
+      await prisma.saberRelacao.create({
+        data: { tipo: "prerequisito", origemId, destinoId },
+      });
+    }
+    for (const ref of s.integracoes) {
+      const outroId = resolverSaberRef(ref, `integração de "${s.titulo}"`);
+      if (!outroId) continue;
+      const parKey = [destinoId, outroId].sort().join("::");
+      if (paresIntegracaoCriados.has(parKey)) continue;
+      paresIntegracaoCriados.add(parKey);
+      await prisma.saberRelacao.create({
+        data: { tipo: "integracao", origemId: destinoId, destinoId: outroId },
+      });
+    }
   }
 
   // Códigos de acesso vêm de variáveis de ambiente (nunca do código versionado —
