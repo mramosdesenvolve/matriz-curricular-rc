@@ -27,11 +27,11 @@ export function ShellNav({ perfil }: { perfil: string }) {
 
   const isAdmin = perfil === "admin";
   const tabs = [
+    { href: "/competencias", label: "Competências" },
     { href: "/matriz-curricular", label: "Matriz Curricular" },
+    { href: "/matriz-integracao", label: "Matriz de Integração" },
     { href: "/matriz", label: "Mapa por Fases" },
     { href: "/grade-semanal", label: "Grade Semanal" },
-    { href: "/competencias", label: "Competências" },
-    { href: "/matriz-integracao", label: "Matriz de Integração" },
     ...(isAdmin ? [{ href: "/usuarios", label: "Usuários" }] : []),
     ...(isAdmin ? [{ href: "/auditoria", label: "Histórico" }] : []),
   ];
