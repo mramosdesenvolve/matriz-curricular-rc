@@ -6,11 +6,10 @@ import { BimestreColumn } from "@/components/matriz/BimestreColumn";
 import { CardItem } from "@/components/matriz/CardItem";
 import { SaberPickerModal } from "@/components/matriz/SaberPickerModal";
 import { CardPlacementModal } from "@/components/matriz/CardPlacementModal";
-import { PlanejamentoModal } from "@/components/matriz/PlanejamentoModal";
 import { BIMESTRES, type ComponenteDef } from "@/lib/domain";
 import { moverCard } from "@/lib/actions/cards";
 import { toggleValidado } from "@/lib/actions/validacao";
-import { getPlanejamento, type CardVM, type PlanejamentoVM } from "@/lib/cards-data";
+import type { CardVM, PlanejamentoVM } from "@/lib/cards-data";
 
 type MetaValidacao = { validado: boolean; validadoEm: string | null; validadoPor: string | null };
 
@@ -35,7 +34,6 @@ export function ComponenteSection({
   const [modal, setModal] = useState<
     | { tipo: "picker"; bimestre: number }
     | { tipo: "placement"; cardId: string }
-    | { tipo: "planejamento"; bimestre: number }
     | null
   >(null);
 
@@ -124,10 +122,8 @@ export function ComponenteSection({
               bimestre={b}
               cards={porBimestre.get(b) ?? []}
               podeEditar={podeEditar}
-              planejamento={getPlanejamento(planejamentos, componente.id, b)}
               onCardClick={(card) => setModal({ tipo: "placement", cardId: card.id })}
               onNovoClick={() => setModal({ tipo: "picker", bimestre: b })}
-              onPlanejamentoClick={() => setModal({ tipo: "planejamento", bimestre: b })}
             />
           ))}
         </div>
@@ -151,16 +147,6 @@ export function ComponenteSection({
             <CardPlacementModal card={card} podeEditar={podeEditar} onClose={() => setModal(null)} />
           ) : null;
         })()}
-      {modal?.tipo === "planejamento" && (
-        <PlanejamentoModal
-          componenteId={componente.id}
-          ano={ano}
-          bimestre={modal.bimestre}
-          planejamento={getPlanejamento(planejamentos, componente.id, modal.bimestre)}
-          podeEditar={podeEditar}
-          onClose={() => setModal(null)}
-        />
-      )}
     </div>
   );
 }

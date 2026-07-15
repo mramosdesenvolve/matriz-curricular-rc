@@ -4,24 +4,20 @@ import { useDroppable } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CardItem } from "@/components/matriz/CardItem";
 import { nomeFase } from "@/lib/domain";
-import type { CardVM, PlanejamentoVM } from "@/lib/cards-data";
+import type { CardVM } from "@/lib/cards-data";
 
 export function BimestreColumn({
   bimestre,
   cards,
   podeEditar,
-  planejamento,
   onCardClick,
   onNovoClick,
-  onPlanejamentoClick,
 }: {
   bimestre: number;
   cards: CardVM[];
   podeEditar: boolean;
-  planejamento: PlanejamentoVM;
   onCardClick: (card: CardVM) => void;
   onNovoClick: () => void;
-  onPlanejamentoClick: () => void;
 }) {
   const { setNodeRef, isOver } = useDroppable({ id: `col:${bimestre}`, data: { bimestre } });
 
@@ -56,18 +52,6 @@ export function BimestreColumn({
           + Adicionar saber
         </button>
       )}
-
-      <button
-        onClick={onPlanejamentoClick}
-        className={
-          "rounded-lg border px-2 py-1.5 text-xs font-semibold " +
-          (planejamento.temposAula !== null
-            ? "border-sucesso-bg bg-sucesso-bg text-sucesso hover:opacity-80"
-            : "border-line-strong text-ink-faint hover:border-ink-soft hover:text-ink-soft")
-        }
-      >
-        {planejamento.temposAula !== null ? `📋 ${planejamento.temposAula} tempos de aula` : "📋 Planejamento da fase"}
-      </button>
     </div>
   );
 }
