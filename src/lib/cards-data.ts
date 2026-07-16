@@ -98,6 +98,23 @@ export async function fetchSaberesDisponiveisParaBimestre(
   return raw;
 }
 
+// Usado só na Grade Semanal: ao contrário do Mapa por Fases (onde um saber já
+// posicionado na fase some da lista), aqui um saber só é excluído se já
+// estiver posicionado nesta semana específica — permitindo repetir o mesmo
+// saber em semanas diferentes, inclusive dentro da mesma fase.
+export async function fetchSaberesDisponiveisParaSemana(
+  componenteId: string,
+  ano: number,
+  semanaId: string
+): Promise<SaberDisponivel[]> {
+  const raw = await prisma.saberCurricular.findMany({
+    where: { componenteId, ano, placements: { none: { semanaId } } },
+    select: { id: true, titulo: true, descricao: true },
+    orderBy: { titulo: "asc" },
+  });
+  return raw;
+}
+
 export async function fetchTodosSaberesResumo(): Promise<SaberRelacionado[]> {
   const raw = await prisma.saberCurricular.findMany({
     select: { id: true, titulo: true, componenteId: true },

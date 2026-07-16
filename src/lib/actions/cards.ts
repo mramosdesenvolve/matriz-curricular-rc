@@ -6,7 +6,7 @@ import { auth } from "@/lib/auth";
 import { podeEditarComponente } from "@/lib/permissions";
 import { registrarAcao } from "@/lib/auditoria";
 import { getComponente, nomeFase } from "@/lib/domain";
-import { fetchSaberesDisponiveisParaBimestre } from "@/lib/cards-data";
+import { fetchSaberesDisponiveisParaBimestre, fetchSaberesDisponiveisParaSemana } from "@/lib/cards-data";
 
 export async function buscarSaberesDisponiveis(componenteId: string, ano: number, bimestre: number) {
   const session = await auth();
@@ -14,6 +14,14 @@ export async function buscarSaberesDisponiveis(componenteId: string, ano: number
     throw new Error("É necessário estar logado.");
   }
   return fetchSaberesDisponiveisParaBimestre(componenteId, ano, bimestre);
+}
+
+export async function buscarSaberesDisponiveisParaSemana(componenteId: string, ano: number, semanaId: string) {
+  const session = await auth();
+  if (!session?.user) {
+    throw new Error("É necessário estar logado.");
+  }
+  return fetchSaberesDisponiveisParaSemana(componenteId, ano, semanaId);
 }
 
 async function requireEdicao(componenteId: string) {

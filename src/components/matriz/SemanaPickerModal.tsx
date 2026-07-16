@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useTransition } from "react";
 import { Modal } from "@/components/ui/Modal";
-import { buscarSaberesDisponiveis, adicionarSaberASemana } from "@/lib/actions/cards";
+import { buscarSaberesDisponiveisParaSemana, adicionarSaberASemana } from "@/lib/actions/cards";
 import { getComponente } from "@/lib/domain";
 import type { SaberDisponivel } from "@/lib/cards-data";
 import type { SemanaVM } from "@/lib/cards-data";
@@ -24,10 +24,10 @@ export function SemanaPickerModal({
   const [pending, startTransition] = useTransition();
 
   useEffect(() => {
-    buscarSaberesDisponiveis(componenteId, ano, semana.bimestre)
+    buscarSaberesDisponiveisParaSemana(componenteId, ano, semana.id)
       .then(setSaberes)
       .catch((e) => setErro(e instanceof Error ? e.message : "Erro ao carregar saberes."));
-  }, [componenteId, ano, semana.bimestre]);
+  }, [componenteId, ano, semana.id]);
 
   const filtrados = (saberes ?? []).filter((s) => s.titulo.toLowerCase().includes(busca.toLowerCase()));
 
@@ -65,7 +65,7 @@ export function SemanaPickerModal({
 
         {saberes !== null && filtrados.length === 0 && (
           <div className="rounded-lg border border-dashed border-line-strong px-3 py-4 text-center text-sm text-ink-faint">
-            Nenhum saber disponível{busca ? " para essa busca" : " — todos já estão posicionados nesta fase"}.
+            Nenhum saber disponível{busca ? " para essa busca" : " — todos já estão posicionados nesta semana"}.
             {saberes.length === 0 && !busca && (
               <div className="mt-1">Peça à Gestão Pedagógica para cadastrar saberes na Matriz Curricular.</div>
             )}
