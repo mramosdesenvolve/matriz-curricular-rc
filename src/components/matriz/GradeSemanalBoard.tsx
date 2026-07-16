@@ -10,6 +10,8 @@ import { getDetalhamento, type CardVM, type SemanaVM, type DetalhamentoVM } from
 
 type Area = (typeof AREAS)[number];
 
+const LIMITE_SINTESE = 630;
+
 function DetalhamentoCelula({
   componenteId,
   semanaId,
@@ -48,16 +50,21 @@ function DetalhamentoCelula({
     <div>
       <textarea
         value={texto}
-        onChange={(e) => setTexto(e.target.value)}
+        onChange={(e) => setTexto(e.target.value.slice(0, LIMITE_SINTESE))}
         readOnly={!podeEditar}
-        placeholder="Detalhamento metodológico…"
+        placeholder="Síntese metodológica da aula"
+        maxLength={LIMITE_SINTESE}
         rows={2}
         className="w-full resize-y rounded-md border border-line-strong bg-branco px-2 py-1 text-[11px] leading-snug text-ink-soft placeholder:text-ink-faint focus:border-brand-blue focus:outline-none"
       />
       {podeEditar && (
         <div className="mt-1 flex items-center justify-between gap-2">
           <span className="text-[10px] text-ink-faint">
-            {erro ? <span className="text-alerta">{erro}</span> : alterado ? "Alterações não salvas" : "Salvo"}
+            {erro ? (
+              <span className="text-alerta">{erro}</span>
+            ) : (
+              (alterado ? "Alterações não salvas · " : "Salvo · ") + `${texto.length}/${LIMITE_SINTESE}`
+            )}
           </span>
           <button
             onClick={salvar}

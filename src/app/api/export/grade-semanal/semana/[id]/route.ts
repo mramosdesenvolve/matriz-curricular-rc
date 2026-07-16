@@ -38,5 +38,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     cardsPorComponente,
     detalhamentos
   );
-  return gerarRespostaPdf(html, `grade-semanal-${area.id}-semana-${semana.ordem}-fase-${semana.bimestre}.pdf`);
+  return gerarRespostaPdf(html, `grade-semanal-${area.id}-semana-${semana.ordem}-fase-${semana.bimestre}.pdf`, {
+    landscape: true,
+  });
 }

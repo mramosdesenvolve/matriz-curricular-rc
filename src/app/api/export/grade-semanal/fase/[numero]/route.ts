@@ -40,5 +40,5 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
   const html = htmlGradeSemanalFase(area.nome, faseNumero, semanas, area.componentes, cardsPorComponente, detalhamentos);
   const filename = `grade-semanal-${area.id}-fase-${faseNumero}-${nomeFase(faseNumero).toLowerCase().replace(/\s+/g, "-")}.pdf`;
-  return gerarRespostaPdf(html, filename);
+  return gerarRespostaPdf(html, filename, { landscape: true });
 }

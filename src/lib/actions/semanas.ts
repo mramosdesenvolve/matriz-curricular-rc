@@ -37,10 +37,15 @@ export async function removerSemana(semanaId: string) {
   revalidatePath("/matriz");
 }
 
+const LIMITE_SINTESE = 630;
+
 export async function salvarDetalhamento(componenteId: string, semanaId: string, texto: string, subgrupo = "") {
   const session = await auth();
   if (!podeEditarComponente(session, componenteId)) {
     throw new Error("Você não tem permissão para editar este componente.");
+  }
+  if (texto.length > LIMITE_SINTESE) {
+    throw new Error(`A síntese metodológica pode ter no máximo ${LIMITE_SINTESE} caracteres.`);
   }
   const semana = await prisma.semana.findUniqueOrThrow({ where: { id: semanaId } });
 

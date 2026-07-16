@@ -19,21 +19,25 @@ async function abrirNavegador(): Promise<Browser> {
   return chromium.launch();
 }
 
-export async function gerarPdfDeHtml(html: string): Promise<Buffer> {
+export async function gerarPdfDeHtml(html: string, opts?: { landscape?: boolean }): Promise<Buffer> {
   const browser = await abrirNavegador();
   try {
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: "networkidle" });
-    const pdf = await page.pdf({ format: "A4", printBackground: true });
+    const pdf = await page.pdf({ format: "A4", printBackground: true, landscape: opts?.landscape ?? false });
     return pdf;
   } finally {
     await browser.close();
   }
 }
 
-export async function gerarRespostaPdf(html: string, filename: string): Promise<Response> {
+export async function gerarRespostaPdf(
+  html: string,
+  filename: string,
+  opts?: { landscape?: boolean }
+): Promise<Response> {
   try {
-    const pdf = await gerarPdfDeHtml(html);
+    const pdf = await gerarPdfDeHtml(html, opts);
     return new Response(new Uint8Array(pdf), {
       headers: {
         "Content-Type": "application/pdf",

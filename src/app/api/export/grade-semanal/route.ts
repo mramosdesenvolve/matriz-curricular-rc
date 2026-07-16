@@ -33,5 +33,5 @@ export async function GET(request: NextRequest) {
   const fases = FASES.map((f, i) => ({ numero: f.numero, nome: f.nome, semanas: semanasPorFaseArr[i] }));
 
   const html = htmlGradeSemanalCompleta(area.nome, fases, area.componentes, cardsPorComponente, detalhamentos);
-  return gerarRespostaPdf(html, `grade-semanal-${area.id}.pdf`);
+  return gerarRespostaPdf(html, `grade-semanal-${area.id}.pdf`, { landscape: true });
 }
