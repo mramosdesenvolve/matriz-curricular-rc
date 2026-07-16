@@ -37,7 +37,7 @@ export async function removerSemana(semanaId: string) {
   revalidatePath("/matriz");
 }
 
-export async function salvarDetalhamento(componenteId: string, semanaId: string, texto: string) {
+export async function salvarDetalhamento(componenteId: string, semanaId: string, texto: string, subgrupo = "") {
   const session = await auth();
   if (!podeEditarComponente(session, componenteId)) {
     throw new Error("Você não tem permissão para editar este componente.");
@@ -45,10 +45,11 @@ export async function salvarDetalhamento(componenteId: string, semanaId: string,
   const semana = await prisma.semana.findUniqueOrThrow({ where: { id: semanaId } });
 
   await prisma.detalhamentoSemana.upsert({
-    where: { componenteId_semanaId: { componenteId, semanaId } },
+    where: { componenteId_semanaId_subgrupo: { componenteId, semanaId, subgrupo } },
     create: {
       componenteId,
       semanaId,
+      subgrupo,
       texto,
       atualizadoEm: new Date(),
       atualizadoPor: session!.user.name ?? null,

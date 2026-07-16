@@ -93,3 +93,27 @@ export function componenteColor(componenteId: string) {
   const a = areaOf(componenteId);
   return a ? areaColor(a.id) : { accent: "#5B5F6E", bg: "#EEECE5" };
 }
+
+// Divisão de Oficinação em Português/Matemática — usada só na Grade Semanal
+// (coluna e detalhamento), para melhor organização. Em qualquer outra tela do
+// sistema (Matriz Curricular, Mapa por Fases, Competências, Usuários),
+// "oficinacao" continua sendo um único componente.
+const OFICINACAO_COMPETENCIAS_MAT = ["OFIC3", "OFIC4"];
+
+export function subgrupoOficinacao(competenciaIds: string[]): "pt" | "mat" {
+  return competenciaIds.some((id) => OFICINACAO_COMPETENCIAS_MAT.includes(id)) ? "mat" : "pt";
+}
+
+export type ColunaGradeSemanal = { key: string; componenteId: string; nome: string; subgrupo: string };
+
+export function colunasGradeSemanal(componentes: ComponenteDef[]): ColunaGradeSemanal[] {
+  return componentes.flatMap((c) => {
+    if (c.id === "oficinacao") {
+      return [
+        { key: "oficinacao-pt", componenteId: "oficinacao", nome: "Oficinação (Pt)", subgrupo: "pt" },
+        { key: "oficinacao-mat", componenteId: "oficinacao", nome: "Oficinação (Mat)", subgrupo: "mat" },
+      ];
+    }
+    return [{ key: c.id, componenteId: c.id, nome: c.nome, subgrupo: "" }];
+  });
+}

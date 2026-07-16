@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { ANOS, BIMESTRES, HABILITACOES, areaOf, getComponente, nomeFase, type ComponenteDef } from "@/lib/domain";
+import { ANOS, BIMESTRES, HABILITACOES, areaOf, getComponente, nomeFase, colunasGradeSemanal, subgrupoOficinacao, type ComponenteDef } from "@/lib/domain";
 import { getDetalhamento, type CardVM, type PlanejamentoVM, type SaberVM, type SemanaVM, type DetalhamentoVM } from "@/lib/cards-data";
 
 const LOGO_PATH = path.join(process.cwd(), "public", "logo-rede-cruzada.png");
@@ -219,16 +219,20 @@ export function htmlMatrizCurricular(
 
 function linhaSemana(
   semana: SemanaVM,
-  componentes: ComponenteDef[],
+  colunas: ReturnType<typeof colunasGradeSemanal>,
   cardsPorComponente: Map<string, CardVM[]>,
   detalhamentos: Map<string, DetalhamentoVM>
 ) {
-  const celulas = componentes
-    .map((c) => {
-      const cards = (cardsPorComponente.get(c.id) ?? [])
-        .filter((card) => card.semanaId === semana.id)
+  const celulas = colunas
+    .map((col) => {
+      const cards = (cardsPorComponente.get(col.componenteId) ?? [])
+        .filter(
+          (card) =>
+            card.semanaId === semana.id &&
+            (col.subgrupo === "" || subgrupoOficinacao(card.competencias.map((c) => c.id)) === col.subgrupo)
+        )
         .sort((a, b) => a.ordem - b.ordem);
-      const det = getDetalhamento(detalhamentos, c.id, semana.id);
+      const det = getDetalhamento(detalhamentos, col.componenteId, semana.id, col.subgrupo);
       const chips =
         cards.length === 0
           ? `<div class="vazio">Nenhum saber posicionado.</div>`
@@ -251,9 +255,10 @@ function tabelaSemanas(
   if (semanas.length === 0) {
     return `<div class="item" style="color:#8B8E9A;">Nenhuma semana criada nesta fase.</div>`;
   }
+  const colunas = colunasGradeSemanal(componentes);
   return `<table class="grade-semanal">
-    <thead><tr><th>Semana</th>${componentes.map((c) => `<th>${escapeHtml(c.nome)}</th>`).join("")}</tr></thead>
-    <tbody>${semanas.map((s) => linhaSemana(s, componentes, cardsPorComponente, detalhamentos)).join("")}</tbody>
+    <thead><tr><th>Semana</th>${colunas.map((col) => `<th>${escapeHtml(col.nome)}</th>`).join("")}</tr></thead>
+    <tbody>${semanas.map((s) => linhaSemana(s, colunas, cardsPorComponente, detalhamentos)).join("")}</tbody>
   </table>`;
 }
 

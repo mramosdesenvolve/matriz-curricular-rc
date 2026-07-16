@@ -110,17 +110,21 @@ model Semana {
 
 // Detalhamento metodológico de uma célula da Grade Semanal (componente + semana):
 // texto livre descrevendo como aquele componente vai abordar aquela semana,
-// independente dos saberes já posicionados nela.
+// independente dos saberes já posicionados nela. "subgrupo" só é usado para
+// separar Oficinação em Português/Matemática dentro da Grade Semanal (ver
+// colunasGradeSemanal em src/lib/domain.ts) — vazio ("") para os demais
+// componentes, que continuam com uma única célula por semana.
 model DetalhamentoSemana {
   componenteId  String
   componente    Componente @relation(fields: [componenteId], references: [id])
   semanaId      String
   semana        Semana     @relation(fields: [semanaId], references: [id], onDelete: Cascade)
+  subgrupo      String     @default("")
   texto         String     @default("")
   atualizadoEm  DateTime?
   atualizadoPor String?
 
-  @@id([componenteId, semanaId])
+  @@id([componenteId, semanaId, subgrupo])
 }
 
 // Competências cadastradas por componente curricular (CCMI, Projeto,

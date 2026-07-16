@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import { CardPlacementModal } from "@/components/matriz/CardPlacementModal";
 import { SemanaPickerModal } from "@/components/matriz/SemanaPickerModal";
 import { criarSemana, removerSemana, salvarDetalhamento } from "@/lib/actions/semanas";
-import { componenteColor, FASES } from "@/lib/domain";
+import { componenteColor, colunasGradeSemanal, subgrupoOficinacao, FASES } from "@/lib/domain";
 import type { AREAS } from "@/lib/domain";
 import { getDetalhamento, type CardVM, type SemanaVM, type DetalhamentoVM } from "@/lib/cards-data";
 
@@ -13,11 +13,13 @@ type Area = (typeof AREAS)[number];
 function DetalhamentoCelula({
   componenteId,
   semanaId,
+  subgrupo,
   textoInicial,
   podeEditar,
 }: {
   componenteId: string;
   semanaId: string;
+  subgrupo: string;
   textoInicial: string;
   podeEditar: boolean;
 }) {
@@ -33,7 +35,7 @@ function DetalhamentoCelula({
   function salvar() {
     startTransition(async () => {
       try {
-        await salvarDetalhamento(componenteId, semanaId, texto);
+        await salvarDetalhamento(componenteId, semanaId, texto, subgrupo);
         setSalvo(texto);
         setErro(null);
       } catch (e) {
@@ -93,10 +95,16 @@ export function GradeSemanalBoard({
     | null
   >(null);
   const [pending, startTransition] = useTransition();
+  const colunas = colunasGradeSemanal(area.componentes);
 
-  function cardsDaCelula(componenteId: string, semanaId: string) {
+  function cardsDaCelula(componenteId: string, semanaId: string, subgrupo: string) {
     return cards
-      .filter((c) => c.componenteId === componenteId && c.semanaId === semanaId)
+      .filter(
+        (c) =>
+          c.componenteId === componenteId &&
+          c.semanaId === semanaId &&
+          (subgrupo === "" || subgrupoOficinacao(c.competencias.map((comp) => comp.id)) === subgrupo)
+      )
       .sort((a, b) => a.ordem - b.ordem);
   }
 
@@ -162,13 +170,13 @@ export function GradeSemanalBoard({
                       <th className="w-28 border-b border-line px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
                         Semana
                       </th>
-                      {area.componentes.map((c) => (
+                      {colunas.map((col) => (
                         <th
-                          key={c.id}
+                          key={col.key}
                           className="border-b border-line px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-wide text-ink-faint"
-                          style={{ borderTop: `2px solid ${componenteColor(c.id).accent}` }}
+                          style={{ borderTop: `2px solid ${componenteColor(col.componenteId).accent}` }}
                         >
-                          {c.nome}
+                          {col.nome}
                         </th>
                       ))}
                     </tr>
@@ -205,34 +213,35 @@ export function GradeSemanalBoard({
                             </div>
                           </div>
                         </td>
-                        {area.componentes.map((c) => {
-                          const podeEditar = permissoes[c.id] ?? false;
-                          const cardsCelula = cardsDaCelula(c.id, semana.id);
+                        {colunas.map((col) => {
+                          const podeEditar = permissoes[col.componenteId] ?? false;
+                          const cardsCelula = cardsDaCelula(col.componenteId, semana.id, col.subgrupo);
                           return (
-                            <td key={c.id} className="border-b border-line px-2 py-2 align-top">
+                            <td key={col.key} className="border-b border-line px-2 py-2 align-top">
                               <div className="flex flex-col gap-1.5">
                                 {cardsCelula.map((card) => (
                                   <button
                                     key={card.id}
                                     onClick={() => setModal({ tipo: "placement", cardId: card.id })}
                                     className="rounded-md border border-line border-l-[3px] bg-branco px-2 py-1.5 text-left text-xs hover:border-ink-soft"
-                                    style={{ borderLeftColor: componenteColor(c.id).accent }}
+                                    style={{ borderLeftColor: componenteColor(col.componenteId).accent }}
                                   >
                                     {card.titulo}
                                   </button>
                                 ))}
                                 {podeEditar && (
                                   <button
-                                    onClick={() => setModal({ tipo: "picker", componenteId: c.id, semana })}
+                                    onClick={() => setModal({ tipo: "picker", componenteId: col.componenteId, semana })}
                                     className="rounded-md border border-dashed border-line-strong px-2 py-1 text-[11px] font-semibold text-ink-faint hover:border-ink-soft hover:text-ink-soft"
                                   >
                                     + Adicionar saber
                                   </button>
                                 )}
                                 <DetalhamentoCelula
-                                  componenteId={c.id}
+                                  componenteId={col.componenteId}
                                   semanaId={semana.id}
-                                  textoInicial={getDetalhamento(detalhamentos, c.id, semana.id).texto}
+                                  subgrupo={col.subgrupo}
+                                  textoInicial={getDetalhamento(detalhamentos, col.componenteId, semana.id, col.subgrupo).texto}
                                   podeEditar={podeEditar}
                                 />
                               </div>

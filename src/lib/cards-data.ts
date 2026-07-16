@@ -233,8 +233,8 @@ export type DetalhamentoVM = {
 
 const DETALHAMENTO_VAZIO: DetalhamentoVM = { texto: "", atualizadoEm: null, atualizadoPor: null };
 
-function detalhamentoKey(componenteId: string, semanaId: string) {
-  return `${componenteId}:${semanaId}`;
+function detalhamentoKey(componenteId: string, semanaId: string, subgrupo: string) {
+  return `${componenteId}:${semanaId}:${subgrupo}`;
 }
 
 export async function fetchDetalhamentos(
@@ -246,7 +246,7 @@ export async function fetchDetalhamentos(
   });
   const map = new Map<string, DetalhamentoVM>();
   for (const r of rows) {
-    map.set(detalhamentoKey(r.componenteId, r.semanaId), {
+    map.set(detalhamentoKey(r.componenteId, r.semanaId, r.subgrupo), {
       texto: r.texto,
       atualizadoEm: r.atualizadoEm ? formatarData(r.atualizadoEm) : null,
       atualizadoPor: r.atualizadoPor,
@@ -258,9 +258,10 @@ export async function fetchDetalhamentos(
 export function getDetalhamento(
   map: Map<string, DetalhamentoVM>,
   componenteId: string,
-  semanaId: string
+  semanaId: string,
+  subgrupo = ""
 ): DetalhamentoVM {
-  return map.get(detalhamentoKey(componenteId, semanaId)) ?? DETALHAMENTO_VAZIO;
+  return map.get(detalhamentoKey(componenteId, semanaId, subgrupo)) ?? DETALHAMENTO_VAZIO;
 }
 
 export type CompetenciaComponenteVM = CompetenciaVM & {
